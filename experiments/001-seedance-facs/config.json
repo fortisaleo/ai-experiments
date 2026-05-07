@@ -1,0 +1,50 @@
+{
+  "name": "facs-portrait",
+  "slug": "001-seedance-facs",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "A beautiful cinematic close-up portrait of an original female character, early 30s, expressive face, neutral resting expression, direct eye contact with camera, natural skin texture, soft studio key light, subtle rim light, clean background, hair pulled back enough to clearly show eyebrows, eyelids, cheeks, lips, jaw and neck. Photorealistic editorial film still, 85mm lens, shallow depth of field, high detail, no text, no watermark, no heavy makeup, no occluding hands, no sunglasses.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "5",
+    "aspectRatio": "9:16",
+    "generateAudio": false
+  },
+  "clips": [
+    {
+      "name": "forced-smile-fade",
+      "seed": 1201,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU12 light bilateral lip corner puller, AU6 very weak cheek raiser delayed by 1 second, AU7 mild lid tightener, AU15 very faint lip corner depressor under the smile, AU24 slight lip press at the end, AU64 eyes down briefly then return to camera. Keep head mostly still. Cinematic close-up dialogue shot, subtle forced smile forming and almost breaking, micro-expression realism, no exaggerated emotion labels."
+    },
+    {
+      "name": "uncanny-politeness",
+      "seed": 1202,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU1 inner brow raiser low intensity, AU2 outer brow raiser low intensity, AU5 upper lid raiser medium intensity, AU12 small lip corner puller, AU14 dimpler, AU23 lip tightener, AU44 slight squint. Keep gaze locked on camera. The face should hold a polite but subtly uncanny social expression, with tiny asymmetries and restrained movement."
+    },
+    {
+      "name": "suppressed-concern",
+      "seed": 1203,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU1 inner brow raiser medium, AU4 brow lowerer low, AU7 lid tightener low, AU15 lip corner depressor very low, AU17 chin raiser low, AU24 lip press medium, AU61 eyes turn left then return center. Minimal head movement. Subtle close-up facial acting, suppressed concern without broad emotion labels."
+    },
+    {
+      "name": "micro-disgust",
+      "seed": 1204,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU9 nose wrinkler short pulse, AU10 upper lip raiser short pulse, AU7 lid tightener, AU4 brow lowerer low, AU14 one-sided dimpler, AU24 lip press after the pulse, AU62 eyes turn right. Keep performance restrained and realistic, a fleeting micro-expression in a cinematic portrait close-up."
+    },
+    {
+      "name": "held-back-laugh",
+      "seed": 1205,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU6 cheek raiser gradually increases, AU12 lip corner puller medium, AU25 lips part slightly, AU26 jaw drop very small, AU7 lid tightener, AU43 eyes closed for a brief blink, AU53 head up slightly. The performance should feel like holding back a laugh while staying composed."
+    },
+    {
+      "name": "mask-slips",
+      "seed": 1206,
+      "prompt": "Use only these FACS-style facial action instructions as the performance control: start with AU12 lip corner puller low and AU6 weak cheek raiser, then transition to AU4 brow lowerer, AU7 lid tightener, AU23 lip tightener, AU24 lip press, AU54 head down slightly, AU64 eyes down. Keep the motion subtle and continuous, like a pleasant social mask slipping for a moment."
+    }
+  ]
+}
