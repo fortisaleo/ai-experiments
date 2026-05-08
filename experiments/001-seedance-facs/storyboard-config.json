@@ -1,0 +1,83 @@
+{
+  "name": "facs-portrait-storyboard",
+  "slug": "001-seedance-facs",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "A beautiful cinematic close-up portrait of an original female character, early 30s, expressive face, neutral resting expression, direct eye contact with camera, natural skin texture, soft studio key light, subtle rim light, clean background, hair pulled back enough to clearly show eyebrows, eyelids, cheeks, lips, jaw and neck. Photorealistic editorial film still, 85mm lens, shallow depth of field, high detail, no text, no watermark, no heavy makeup, no occluding hands, no sunglasses.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "baseImageCandidates": {
+    "count": 5,
+    "promptTemplate": "A stunning cinematic close-up portrait of an original female character, early 30s, {{descriptor}}, expressive face, calm neutral resting expression, direct eye contact with camera, elegant natural styling, natural skin texture, soft studio key light, subtle rim light, refined color grading, clean dark-neutral background, hair styled back enough to clearly show eyebrows, eyelids, cheeks, lips, jaw and neck. Photorealistic editorial film still, 85mm lens, shallow depth of field, high detail, symmetrical readable face for facial-performance animation, no text, no watermark, no heavy makeup, no occluding hands, no sunglasses.",
+    "subjects": [
+      {
+        "name": "east-asian",
+        "descriptor": "East Asian features"
+      },
+      {
+        "name": "black-african",
+        "descriptor": "Black African features"
+      },
+      {
+        "name": "south-asian",
+        "descriptor": "South Asian features"
+      },
+      {
+        "name": "latina",
+        "descriptor": "Latina features"
+      },
+      {
+        "name": "middle-eastern",
+        "descriptor": "Middle Eastern features"
+      }
+    ]
+  },
+  "selectedBaseImage": {
+    "name": "04-latina",
+    "imageUrl": "https://v3b.fal.media/files/b/0a994a49/FOYUOWCckz-6Rmm9WGa9a_kAFwJDG2.png",
+    "upscaledImageUrl": "https://v3b.fal.media/files/b/0a994a9e/6MJxWG7f8zhIfYll3vAH5_image.png",
+    "localPath": "outputs/001-seedance-facs/2026-05-07T19-18-31-914Z-facs-portrait/base-candidates/04-latina.png",
+    "upscaledLocalPath": "outputs/001-seedance-facs/upscaled/selected-base-04-latina-topaz.png",
+    "notes": "Selected from the five base-image candidates. Upscaled with fal Topaz before Seedance generation."
+  },
+  "baseImageUpscale": {
+    "model": "fal-ai/topaz/upscale/image",
+    "topazModel": "Standard V2",
+    "upscaleFactor": 2,
+    "outputFormat": "png",
+    "subjectDetection": "All",
+    "faceEnhancement": true,
+    "faceEnhancementStrength": 0.8
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "5",
+    "aspectRatio": "9:16",
+    "generateAudio": false
+  },
+  "clips": [
+    {
+      "name": "storyboard-beautiful-smile",
+      "seed": 1401,
+      "prompt": "One continuous 5-second cinematic close-up using the provided image as the exact character reference. Storyboard: 0.0-1.0s: neutral direct gaze, relaxed mouth, calm stillness. 1.0-2.5s: the eyes warm first, cheeks begin to lift, a small smile starts at both corners. 2.5-4.0s: the smile reaches a beautiful genuine peak with soft eyes and slightly parted lips. 4.0-5.0s: the expression settles into a warm held smile. FACS controls: AU6 cheek raiser gradually increases, AU12 bilateral lip corner puller medium-high, AU25 lips part slightly, AU7 soft lid tightener, AU43 brief natural blink. Camera: very slow push-in only. Continuity: preserve identity, face shape, hair, wardrobe, lighting, framing, and background. No cuts, no new character, no exaggerated cartoon motion."
+    },
+    {
+      "name": "storyboard-flirtatious-look",
+      "seed": 1402,
+      "prompt": "One continuous 5-second cinematic close-up using the provided image as the exact character reference. Storyboard: 0.0-1.0s: direct gaze with a composed neutral mouth. 1.0-2.5s: eyelids soften, one corner of the mouth lifts slightly, and the head begins a subtle tilt. 2.5-4.0s: the eyes make a brief side-eye glance, then return to camera with a playful restrained smile. 4.0-5.0s: the expression holds as elegant flirtation, not broad comedy. FACS controls: AU12 asymmetric light lip corner puller, AU14 subtle one-sided dimpler, AU7 soft lid tightener, AU44 slight squint, AU61 then AU62 brief side-eye before returning to camera, AU55 slight head tilt left or AU56 slight head tilt right. Camera: locked close-up with minimal natural drift. Continuity: preserve identity, face shape, hair, wardrobe, lighting, framing, and background. No cuts, no new character, no exaggerated cartoon motion."
+    },
+    {
+      "name": "storyboard-deep-sadness",
+      "seed": 1403,
+      "prompt": "One continuous 5-second cinematic close-up using the provided image as the exact character reference. Storyboard: 0.0-1.0s: composed neutral gaze, breathing still, mouth relaxed. 1.0-2.5s: composure starts to drop; the inner brows rise, brow center tightens, and eyes begin lowering. 2.5-4.0s: mouth corners fall, lips press weakly then release, chin tightens slightly, eyes remain lowered. 4.0-5.0s: eyes slowly return toward camera with visible heaviness, sadness stays restrained and human. FACS controls: AU1 inner brow raiser medium-high, AU4 brow lowerer low-medium, AU15 lip corner depressor medium, AU17 chin raiser low, AU24 lip press weak then release, AU64 eyes down and slow return. Camera: static intimate close-up. Continuity: preserve identity, face shape, hair, wardrobe, lighting, framing, and background. No cuts, no new character, no exaggerated cartoon motion."
+    },
+    {
+      "name": "storyboard-laughing",
+      "seed": 1404,
+      "prompt": "One continuous 5-second cinematic close-up using the provided image as the exact character reference. Storyboard: 0.0-1.0s: neutral face with a tiny smile beginning. 1.0-2.5s: the smile breaks wider, cheeks rise strongly, lips part, and eyes brighten. 2.5-4.0s: the face opens into joyful laughter, jaw drops medium, mouth stretches briefly, eyes close for a moment, head lifts slightly. 4.0-5.0s: laughter settles into a bright smile while the character remains in frame. FACS controls: AU6 cheek raiser high, AU12 lip corner puller high, AU25 lips part, AU26 jaw drop medium, AU27 mouth stretch brief peak, AU43 eyes closed briefly, AU53 head up slightly. Camera: subtle handheld warmth, no major movement. Continuity: preserve identity, face shape, hair, wardrobe, lighting, framing, and background. No cuts, no new character, no exaggerated cartoon motion."
+    }
+  ]
+}

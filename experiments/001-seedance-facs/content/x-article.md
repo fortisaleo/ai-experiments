@@ -1,320 +1,284 @@
-# Generating Facial Performance Videos with FACS, GPT Image 2, and Seedance 2.0
+# Testing 14 FACS Action Units in One Seedance 2.0 Clip
 
-I wanted to see if video models could respond to facial-expression prompts written as muscle-level controls instead of emotion labels.
+I wanted to see if Seedance 2.0 could follow a facial-performance prompt written as a sequence of Action Unit beats instead of broad emotion labels.
 
-So I built a small open-source experiment with fal.ai, GPT Image 2, and Seedance 2.0.
+Not "happy."
 
-This is also the first entry in a new daily series: one AI experiment, shipped in public, every day.
+Not "sad."
 
-The goal is to keep the experiments small enough to finish, concrete enough to learn from, and open enough for other builders to inspect or remix.
+Not "make her look uncanny."
 
-The idea was simple:
+The test was more mechanical: keep one generated face fixed, then move through 14 FACS-style facial actions in one continuous 15-second close-up.
 
-Generate one beautiful base portrait, then use that same image as the starting frame for a batch of short facial-performance videos.
-
-Instead of prompting the model with words like "happy," "sad," "nervous," or "uncomfortable," I wrote the prompts with FACS-style Action Units.
-
-The result is not scientifically precise FACS control.
-
-But it is useful.
-
-The model interpreted enough of the prompt language to produce subtle facial acting beats: a forced smile, a social mask slipping, suppressed concern, micro-disgust, and an uncanny polite expression.
+This is Experiment 001 in a daily open-source AI experiment series. The broader goal is simple: ship one small AI experiment every day, publish the workflow, and leave behind code/config/prompts that other builders can inspect or remix.
 
 ## The Experiment
 
-This first run generated:
+The setup:
 
-- 1 base portrait with GPT Image 2
-- 6 Seedance 2.0 image-to-video clips
-- 1 manifest with prompts, model IDs, seeds, URLs, local paths, and provider responses
+1. Generate a cinematic base portrait with GPT Image 2 through fal.ai.
+2. Pick the strongest portrait candidate.
+3. Upscale it with fal Topaz.
+4. Use the upscaled portrait as the Seedance 2.0 start frame.
+5. Ask Seedance to animate 14 facial Action Unit beats in one 15-second square video.
 
-Everything runs through fal with a single environment variable:
+The result is a stress test for facial control.
+
+Instead of generating one smile, one sad expression, or one laugh, this prompt asks the model to move through a sequence:
+
+```text
+1: AU10 upper lip raiser
+2: AU20 lip stretcher
+3: AU22 lip funneler
+4: AU23 lip tightener
+5: AU27 mouth stretch
+6: AU28 lip suck
+7: AU45 blink
+8: AU53 head up
+9: AU61 eyes turn left
+10: AU62 eyes turn right
+11: AU64 eyes down
+12: AU85 tongue out
+13: AU84 tongue up
+14: AU46 wink
+```
+
+The mood direction was intentionally narrow:
+
+```text
+Uneasy, hypnotic, controlled mood.
+No monster transformation, no gore, no comedy, no text overlay, no watermark.
+Preserve identity, face shape, skin texture, hair, lighting, framing, and background.
+```
+
+## What Is An Action Unit?
+
+FACS stands for Facial Action Coding System.
+
+It is a way to describe visible facial movement using individual components called Action Units.
+
+An Action Unit is not an emotion. It is a specific facial movement.
+
+For example:
+
+- `AU10` = upper lip raiser
+- `AU20` = lip stretcher
+- `AU22` = lip funneler
+- `AU23` = lip tightener
+- `AU45` = blink
+- `AU61` / `AU62` = eyes turn left / right
+- `AU64` = eyes down
+- `AU46` = wink
+
+That distinction matters.
+
+If I prompt a model with "she looks nervous," the model has to invent the facial mechanics.
+
+If I prompt with Action Units, I am giving it a lower-level performance target: what should move, in what order, and with what kind of restraint.
+
+The model may still interpret the prompt loosely. This is not a scientific FACS validation. But it is a useful creative-control test.
+
+## The Full Seedance Prompt
+
+This was the actual 15-second prompt:
+
+```text
+Use the provided character image as the fixed identity reference.
+
+15s, 1:1, 14 beats, beat-synced, cinematic tight close-up, subtle neutral background, high facial clarity, slow micro push-in, shallow depth of field.
+
+The FACS reference grid is only for interpreting Action Unit labels. Do not copy the grid character, layout, clothing, or background.
+
+1: AU10 upper lip raiser
+2: AU20 lip stretcher
+3: AU22 lip funneler
+4: AU23 lip tightener
+5: AU27 mouth stretch
+6: AU28 lip suck
+7: AU45 blink
+8: AU53 head up
+9: AU61 eyes turn left
+10: AU62 eyes turn right
+11: AU64 eyes down
+12: AU85 tongue out
+13: AU84 tongue up
+14: AU46 wink
+
+Uneasy, hypnotic, controlled mood.
+No monster transformation, no gore, no comedy, no text overlay, no watermark.
+Preserve identity, face shape, skin texture, hair, lighting, framing, and background.
+```
+
+The FACS grid was used as human reference material for the labels. It was not passed to Seedance as a second identity image.
+
+The only image input to Seedance was the selected Topaz-upscaled portrait.
+
+## Why This Is Harder Than A Single Expression
+
+A single-expression prompt gives the model one target.
+
+For example:
+
+```text
+AU6 cheek raiser
+AU12 lip corner puller
+AU25 lips part slightly
+```
+
+That can produce a smile-like performance.
+
+The 15-second sequence is different. It asks for many changes in one shot while preserving:
+
+- the same identity
+- the same face shape
+- the same hair and wardrobe
+- the same background
+- the same close-up framing
+- the same cinematic mood
+
+That is much harder.
+
+The model has to balance identity continuity with motion variety. It also has to separate adjacent mouth actions that can visually collapse into each other.
+
+The tongue beats, `AU84` and `AU85`, are especially aggressive stress tests because they are harder to express cleanly from a tight portrait start frame.
+
+## Earlier Passes
+
+Before this 15-second sequence, I ran two smaller comparison passes.
+
+### Phase 1: Direct FACS Prompting
+
+The first pass generated four separate clips:
+
+- beautiful smile
+- flirtatious look
+- deep sadness
+- laughing
+
+Each clip used a compact AU list.
+
+This tested whether direct Action Unit language was enough to steer Seedance at all.
+
+### Phase 2: Storyboard-Guided FACS Prompting
+
+The second pass used the same four expression targets, but wrapped each prompt in a one-shot storyboard:
+
+```text
+0.0-1.0s: starting pose
+1.0-2.5s: facial action begins
+2.5-4.0s: expression reaches peak
+4.0-5.0s: expression settles
+```
+
+That tested whether timing, camera direction, and continuity rules improve the performance.
+
+### Phase 3: Multi-AU Sequence
+
+The current pass is the stress test.
+
+Instead of one expression per clip, it asks for 14 facial beats inside one continuous 15-second close-up.
+
+This is the version I want to lead with because it makes the experiment obvious immediately: can a video model follow a dense facial-performance score?
+
+## What To Look For
+
+When watching the clip, I am not looking for perfect FACS compliance.
+
+I am looking for practical usefulness:
+
+- Does the identity hold?
+- Do the eyes, mouth, and head move in the requested order?
+- Are the beats separable, or do they blend together?
+- Does the face stay cinematic instead of becoming cartoonish?
+- Does the motion feel controlled, uneasy, and intentional?
+- Which Action Units seem easiest or hardest for Seedance?
+
+That last question is probably the most useful one.
+
+If some AUs are reliable and others are unstable, the next step is to build better prompt templates and evaluation notes around each one.
+
+## Open Source Workflow
+
+The repo is organized so each experiment has its own config, prompts, content, and generated manifest.
+
+Important files:
+
+```text
+experiments/001-seedance-facs/config.json
+experiments/001-seedance-facs/storyboard-config.json
+experiments/001-seedance-facs/multi-au-sequence-config.json
+experiments/001-seedance-facs/facs units.jpeg
+src/generate.ts
+```
+
+Useful commands:
+
+```bash
+npm run generate:001
+npm run generate:001:storyboard
+npm run generate:001:multi-au
+npm run generate:001:multi-au -- --dry-run
+```
+
+The whole workflow uses one fal key:
 
 ```bash
 FAL_AI_API_KEY=...
 ```
 
-The repo is intentionally small: a TypeScript CLI, one experiment config, and generated outputs saved locally.
+Generated media is not committed to Git, but every run writes a local manifest with prompts, model IDs, provider URLs, timestamps, local paths, and errors.
 
-The default command is:
-
-```bash
-npm run generate
-```
-
-There is also a dry-run mode:
-
-```bash
-npm run generate -- --dry-run
-```
-
-That prints the resolved image and video requests without spending credits.
-
-## Why FACS?
-
-FACS stands for Facial Action Coding System.
-
-Instead of describing facial expressions as broad emotions, FACS breaks visible facial movement into Action Units.
-
-An Action Unit is a numbered facial movement.
-
-The number is the important part.
-
-`AU12` does not mean "happy." It means lip corner puller: the corners of the mouth move outward and upward.
-
-`AU6` does not mean "smiling." It means cheek raiser: the cheeks lift and the skin around the eyes changes.
-
-`AU4` does not mean "angry." It means brow lowerer: the brows pull down and together.
-
-In this experiment's prompt list, I also use eye and head direction codes like `AU64` for eyes down.
-
-These movements can combine into expressions, but the Action Unit itself is not an emotion label.
-
-That distinction is the whole reason this is interesting.
-
-FACS gives you a way to describe the mechanics of a face instead of naming the feeling you want the audience to read.
-
-For example, a normal smile might use `AU12` with `AU6`.
-
-A forced smile might use `AU12`, but with weak or delayed `AU6`, plus eyelid tension, lip pressing, or a downward pull fighting against the smile.
-
-A worried smile might mix `AU12` with `AU1` inner brow raiser, `AU4` brow lowerer, or `AU15` lip corner depressor.
-
-Same broad category.
-
-Different facial mechanics.
-
-That is much more useful for directing performance.
-
-In the prompts, I also include intensity and timing words:
+For this multi-AU pass, the generated video is:
 
 ```text
-AU12 light bilateral lip corner puller
-AU6 very weak cheek raiser delayed by 1 second
-AU24 slight lip press at the end
+outputs/001-seedance-facs/2026-05-07T20-40-40-959Z-facs-portrait-multi-au/videos/01-multi-au-hypnotic-sequence.mp4
 ```
 
-This reads less like a normal image prompt and more like a tiny performance score.
+## Closing Thought
 
-The model still has to interpret it, and it does not obey every instruction perfectly.
+The most interesting result is not that every Action Unit works.
 
-But the prompt is asking for component-level movement rather than a generic emotional state.
+They do not.
 
-That makes it interesting for generative video prompting because performance is often not one clean emotion.
+Some beats are clear. Some blur together. Some are probably asking too much from a single start-frame video model right now.
 
-A forced smile is not just "happy."
+But the experiment still points somewhere useful.
 
-It might include lip corner pull, weak cheek activation, eyelid tension, a suppressed downward mouth movement, and a small gaze shift.
+For close-up AI video, the future control layer may not be a single emotion word. It may be closer to a performance score: a stable character image, a timed sequence, a few facial mechanics, camera restraint, and continuity rules.
 
-Those pieces matter, especially in close-up dialogue shots.
+That is what I want to keep testing.
 
-## The Pipeline
+The next step is evaluation. I want to watch the direct clips, storyboard clips, and the multi-AU sequence side by side and score them on:
 
-The pipeline has three steps.
+- identity consistency
+- Action Unit readability
+- timing
+- camera stability
+- expression separation
+- overall facial acting quality
 
-First, the CLI generates a cinematic portrait with fal-hosted GPT Image 2.
+If the multi-AU sequence works even partially, the interesting direction is a small prompt generator: plain-language acting direction in, storyboard-plus-FACS prompt out.
 
-The base prompt asks for a clean close-up where the face is readable: visible brows, eyelids, cheeks, lips, jaw, and neck. No sunglasses. No hands covering the face. No heavy occlusion.
+That could become a useful workflow for close-up AI acting: not replacing performance direction, but giving directors and builders a more precise language for it.
 
-Second, the generated image URL becomes the start frame for Seedance 2.0 image-to-video.
+Not just prompting emotions.
 
-Third, the CLI loops through a config file of FACS-style prompts and saves each generated MP4.
+Directing micro-performances.
 
-The current video defaults are:
-
-```json
-{
-  "model": "bytedance/seedance-2.0/image-to-video",
-  "resolution": "720p",
-  "duration": "5",
-  "aspectRatio": "9:16",
-  "generateAudio": false
-}
-```
-
-I kept audio off because I wanted to judge facial performance without another variable.
-
-## One Prompt Example
-
-Here is the first clip prompt, shortened for readability:
-
-```text
-AU12 light bilateral lip corner puller
-AU6 very weak cheek raiser delayed by 1 second
-AU7 mild lid tightener
-AU15 very faint lip corner depressor under the smile
-AU24 slight lip press at the end
-AU64 eyes down briefly then return to camera
-```
-
-The intended performance was a forced smile forming and almost breaking.
-
-That is the kind of expression where broad emotion labels are usually too blunt.
-
-If I prompt "smile," I tend to get a clean social smile.
-
-If I prompt "sad smile," I get a more obvious emotional blend.
-
-The Action Unit approach lets me ask for a more mechanical performance: the mouth does one thing, the cheeks do another, the eyelids add tension, and the gaze shifts for a moment.
-
-## What Worked
-
-The strongest part of the workflow is consistency.
-
-Using one generated base image as the start frame keeps the identity and framing stable across the batch.
-
-That makes the clips easier to compare.
-
-It also makes the experiment feel more like performance direction than normal text-to-video prompting. The prompt is not trying to reinvent the shot every time. It is trying to move the same face in different ways.
-
-Seedance did not follow every Action Unit exactly, but it often respected the general region and intensity:
-
-- lip corner movement
-- eyelid tension
-- brow tension
-- gaze shifts
-- small head movement
-- restrained expression changes
-
-The useful result is not perfect control.
-
-The useful result is that FACS-style language gives the model a more granular target than emotion words alone.
-
-## What Did Not Work Yet
-
-This is not a validated FACS benchmark.
-
-I am not claiming the model understands facial anatomy or follows Action Units with scientific accuracy.
-
-Some movements get merged.
-
-Some intensities are interpreted loosely.
-
-Some prompts produce the right emotional read but not the exact requested muscle combination.
-
-That is expected. The experiment is creative control, not measurement.
-
-The next version should include side-by-side notes for each clip:
-
-- requested AUs
-- visible movements
-- missing movements
-- accidental movements
-- whether the clip still works as a performance beat
-
-## Why This Feels Useful
-
-This technique seems especially useful for close-up acting.
-
-Not big expressions.
-
-Small ones.
-
-Forced smiles.
-
-Social masks.
-
-Suppressed reactions.
-
-Mixed emotions.
-
-Uncanny politeness.
-
-A character listening to someone and trying not to reveal what they think.
-
-Those moments are hard to prompt with simple labels because the label collapses the performance into one obvious emotion.
-
-FACS-style prompting gives you a way to describe the parts.
-
-Even if the model only partially follows the instruction, partial control can still be useful.
-
-## Open Source
-
-I made the experiment open source because I want the workflow to be easy to inspect and remix.
-
-The larger plan is to publish one AI experiment every day.
-
-Some will be visual.
-
-Some will be code.
-
-Some will be workflow tests.
-
-The constraint is that each one should leave behind something concrete: a repo, a config, a generated artifact, a manifest, or a writeup that another person can learn from.
-
-The repo includes:
-
-- a TypeScript CLI
-- a config-driven experiment file
-- fal-only authentication through `FAL_AI_API_KEY`
-- dry-run mode
-- local output folders
-- a reproducible `manifest.json`
-
-The default config lives in:
-
-```text
-experiments/001-seedance-facs/config.json
-```
-
-The CLI lives in:
-
-```text
-src/generate.ts
-```
-
-The generated media is not committed to the repo, but each run writes a manifest so the prompts and parameters are preserved.
-
-## What I Want To Try Next
-
-Next I want to run the same FACS prompt batch across different base faces.
-
-That should make it easier to see which parts of the prompt are robust and which depend on the source image.
-
-I also want to try:
-
-- fewer AUs per prompt
-- stronger intensity labels
-- explicit timing language
-- prompt pairs that differ by only one Action Unit
-- a small evaluation sheet for every generated clip
-
-The long-term question is whether this becomes a practical control language for subtle AI facial acting.
-
-Not perfect facial anatomy.
-
-Not emotion labels.
-
-Something in between: a useful directing layer for micro-performance.
-
-That is the part I find interesting.
+That is the thread I want this daily experiment series to follow: small tests, honest notes, reusable configs, and one concrete artifact at a time.
 
 ## Media Checklist
 
-Use this video as the article lead:
+Lead video:
 
 ```text
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/01-forced-smile-fade.mp4
+outputs/001-seedance-facs/2026-05-07T20-40-40-959Z-facs-portrait-multi-au/videos/01-multi-au-hypnotic-sequence.mp4
 ```
 
-Then include:
+Supporting media:
 
 ```text
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/base-image.png
+outputs/001-seedance-facs/upscaled/selected-base-04-latina-topaz.png
+outputs/001-seedance-facs/2026-05-07T19-45-57-994Z-facs-portrait/videos/01-beautiful-smile.mp4
+outputs/001-seedance-facs/2026-05-07T20-04-25-358Z-facs-portrait-storyboard/videos/01-storyboard-beautiful-smile.mp4
 ```
-
-Optional supporting clips:
-
-```text
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/02-uncanny-politeness.mp4
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/03-suppressed-concern.mp4
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/04-micro-disgust.mp4
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/05-held-back-laugh.mp4
-outputs/001-seedance-facs/2026-05-07T18-21-56-185Z-facs-portrait/videos/06-mask-slips.mp4
-```
-
-## Sources Used For Article Format
-
-- X Help: Articles can include text, images, video, GIFs, posts, and links.
-- Creators/X Articles guidance: use a clear purpose, specific title, strong first sentence, and skimmable structure.
-- Current launch-post guidance: lead with demo media and state the concrete outcome quickly.

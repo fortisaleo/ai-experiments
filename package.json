@@ -5,9 +5,16 @@
   "main": "dist/generate.js",
   "scripts": {
     "generate": "tsx src/generate.ts",
+    "generate:candidates": "tsx src/generate.ts candidates",
+    "generate:upscale": "tsx src/generate.ts upscale",
     "generate:image": "tsx src/generate.ts image",
     "generate:videos": "tsx src/generate.ts videos",
+    "generate:001:candidates": "tsx src/generate.ts candidates --config experiments/001-seedance-facs/config.json",
+    "generate:001:upscale": "tsx src/generate.ts upscale --config experiments/001-seedance-facs/config.json",
+    "generate:001:storyboard": "tsx src/generate.ts --config experiments/001-seedance-facs/storyboard-config.json",
+    "generate:001:multi-au": "tsx src/generate.ts --config experiments/001-seedance-facs/multi-au-sequence-config.json",
     "generate:001": "tsx src/generate.ts --config experiments/001-seedance-facs/config.json",
+    "generate:002": "tsx src/generate.ts --config experiments/002-seedance-ugc-prompting/config.json",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

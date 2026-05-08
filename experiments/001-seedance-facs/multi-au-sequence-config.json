@@ -1,5 +1,5 @@
 {
-  "name": "facs-portrait",
+  "name": "facs-portrait-multi-au",
   "slug": "001-seedance-facs",
   "baseImage": {
     "model": "openai/gpt-image-2",
@@ -54,30 +54,15 @@
   "video": {
     "model": "bytedance/seedance-2.0/image-to-video",
     "resolution": "720p",
-    "duration": "5",
-    "aspectRatio": "9:16",
+    "duration": "15",
+    "aspectRatio": "1:1",
     "generateAudio": false
   },
   "clips": [
     {
-      "name": "beautiful-smile",
-      "seed": 1301,
-      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU6 cheek raiser gradually increases, AU12 bilateral lip corner puller medium-high, AU25 lips part slightly, AU7 soft lid tightener, AU43 brief natural blink. Keep gaze warm and steady toward camera. Maintain the same identity and framing from the start image. Cinematic close-up portrait, beautiful genuine smile forming naturally, restrained realism, no cartoon exaggeration."
-    },
-    {
-      "name": "flirtatious-look",
-      "seed": 1302,
-      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU12 asymmetric light lip corner puller, AU14 subtle one-sided dimpler, AU7 soft lid tightener, AU44 slight squint, AU61 then AU62 brief side-eye before returning to camera, AU55 slight head tilt left or AU56 slight head tilt right. Maintain the same identity and framing from the start image. The expression should be restrained, playful, elegant, and flirtatious without becoming exaggerated."
-    },
-    {
-      "name": "deep-sadness",
-      "seed": 1303,
-      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU1 inner brow raiser medium-high, AU4 brow lowerer low-medium, AU15 lip corner depressor medium, AU17 chin raiser low, AU24 lip press weak then release, AU64 eyes down and slow return toward camera. Maintain the same identity and framing from the start image. Movement should feel slow, heavy, vulnerable, and realistic, conveying deep sadness through facial mechanics rather than melodrama."
-    },
-    {
-      "name": "laughing",
-      "seed": 1304,
-      "prompt": "Use only these FACS-style facial action instructions as the performance control: AU6 cheek raiser high, AU12 lip corner puller high, AU25 lips part, AU26 jaw drop medium, AU27 mouth stretch brief peak, AU43 eyes closed briefly, AU53 head up slightly. Maintain the same identity and framing from the start image. The performance should become joyful laughing while staying cinematic and human, not cartoonish."
+      "name": "multi-au-hypnotic-sequence",
+      "seed": 1501,
+      "prompt": "Use the provided character image as the fixed identity reference. 15s, 1:1, 14 beats, beat-synced, cinematic tight close-up, subtle neutral background, high facial clarity, slow micro push-in, shallow depth of field. The FACS reference grid is only for interpreting Action Unit labels. Do not copy the grid character, layout, clothing, or background. Beat sequence: 1: AU10 upper lip raiser. 2: AU20 lip stretcher. 3: AU22 lip funneler. 4: AU23 lip tightener. 5: AU27 mouth stretch. 6: AU28 lip suck. 7: AU45 blink. 8: AU53 head up. 9: AU61 eyes turn left. 10: AU62 eyes turn right. 11: AU64 eyes down. 12: AU85 tongue out. 13: AU84 tongue up. 14: AU46 wink. Uneasy, hypnotic, controlled mood. No monster transformation, no gore, no comedy, no text overlay, no watermark. Preserve identity, face shape, skin texture, hair, lighting, framing, and background."
     }
   ]
 }

@@ -27,6 +27,33 @@ const experimentSchema = z.object({
     quality: z.enum(["low", "medium", "high"]).default("high"),
     outputFormat: z.enum(["jpeg", "png", "webp"]).default("png")
   }),
+  baseImageCandidates: z.object({
+    count: z.number().int().positive().default(5),
+    promptTemplate: z.string().min(1),
+    subjects: z.array(
+      z.object({
+        name: z.string().min(1),
+        descriptor: z.string().min(1)
+      })
+    ).min(1)
+  }).optional(),
+  selectedBaseImage: z.object({
+    name: z.string().min(1),
+    imageUrl: z.string().url(),
+    upscaledImageUrl: z.string().url().optional(),
+    localPath: z.string().min(1).optional(),
+    upscaledLocalPath: z.string().min(1).optional(),
+    notes: z.string().min(1).optional()
+  }).optional(),
+  baseImageUpscale: z.object({
+    model: z.string().min(1).default("fal-ai/topaz/upscale/image"),
+    topazModel: z.string().min(1).default("Standard V2"),
+    upscaleFactor: z.number().positive().default(2),
+    outputFormat: z.enum(["jpeg", "png"]).default("png"),
+    subjectDetection: z.enum(["All", "Foreground", "Background"]).default("All"),
+    faceEnhancement: z.boolean().default(true),
+    faceEnhancementStrength: z.number().min(0).max(1).default(0.8)
+  }).optional(),
   video: z.object({
     model: z.string().min(1).default("bytedance/seedance-2.0/image-to-video"),
     resolution: z.enum(["480p", "720p"]).default("720p"),
@@ -46,7 +73,7 @@ const experimentSchema = z.object({
 type Experiment = z.infer<typeof experimentSchema>;
 
 type CliOptions = {
-  command: "generate" | "image" | "videos";
+  command: "generate" | "image" | "videos" | "candidates" | "upscale";
   configPath: string;
   dryRun: boolean;
   imageUrl?: string;
@@ -70,6 +97,32 @@ type Manifest = {
     model: string;
     providerResult?: unknown;
   };
+  selectedBaseImage?: {
+    name: string;
+    imageUrl: string;
+    upscaledImageUrl?: string;
+    localPath?: string;
+    upscaledLocalPath?: string;
+    notes?: string;
+  };
+  baseImageUpscale?: {
+    status: "succeeded" | "failed" | "dry-run";
+    sourceImageUrl: string;
+    imageUrl?: string;
+    localPath?: string;
+    providerResult?: unknown;
+    error?: string;
+  };
+  baseImageCandidates?: Array<{
+    name: string;
+    descriptor: string;
+    prompt: string;
+    status: "succeeded" | "failed" | "dry-run";
+    imageUrl?: string;
+    localPath?: string;
+    providerResult?: unknown;
+    error?: string;
+  }>;
   falImageUrl?: string;
   videos: Array<{
     name: string;
@@ -89,7 +142,7 @@ function parseArgs(argv: string[]): CliOptions {
   const args = [...argv];
   let command: CliOptions["command"] = "generate";
 
-  if (args[0] === "image" || args[0] === "videos" || args[0] === "generate") {
+  if (args[0] === "image" || args[0] === "videos" || args[0] === "generate" || args[0] === "candidates" || args[0] === "upscale") {
     command = args.shift() as CliOptions["command"];
   }
 
@@ -155,8 +208,12 @@ function createManifest(runId: string, options: CliOptions, experiment: Experime
     },
     baseImage: {
       prompt: experiment.baseImage.prompt,
-      model: experiment.baseImage.model
+      model: experiment.baseImage.model,
+      imageUrl: experiment.selectedBaseImage?.upscaledImageUrl ?? experiment.selectedBaseImage?.imageUrl,
+      localPath: experiment.selectedBaseImage?.upscaledLocalPath ?? experiment.selectedBaseImage?.localPath
     },
+    selectedBaseImage: experiment.selectedBaseImage,
+    baseImageCandidates: [],
     videos: experiment.clips.map((clip) => ({
       name: clip.name,
       prompt: clip.prompt,
@@ -166,6 +223,12 @@ function createManifest(runId: string, options: CliOptions, experiment: Experime
     config: experiment,
     errors: []
   };
+}
+
+function buildCandidatePrompt(template: string, subject: { name: string; descriptor: string }): string {
+  return template
+    .replaceAll("{{name}}", subject.name)
+    .replaceAll("{{descriptor}}", subject.descriptor);
 }
 
 async function saveManifest(manifest: Manifest, outputDir: string): Promise<void> {
@@ -181,6 +244,16 @@ function getImageUrl(result: unknown): string {
     throw new Error("Image generation completed but no image URL was returned.");
   }
   return url;
+}
+
+function getOutputImageUrl(result: unknown): string {
+  const image = (result as { data?: { image?: { url?: string } }; image?: { url?: string } }).data?.image
+    ?? (result as { image?: { url?: string } }).image;
+  const url = image?.url;
+  if (url) {
+    return url;
+  }
+  return getImageUrl(result);
 }
 
 function getVideoUrl(result: unknown): string {
@@ -243,6 +316,145 @@ async function generateBaseImage(experiment: Experiment, manifest: Manifest, out
   manifest.baseImage.providerResult = result;
   manifest.falImageUrl = imageUrl;
   return imageUrl;
+}
+
+async function generateBaseImageCandidates(experiment: Experiment, manifest: Manifest, outputDir: string, dryRun: boolean): Promise<void> {
+  if (!experiment.baseImageCandidates) {
+    throw new Error("This config does not define baseImageCandidates.");
+  }
+
+  const candidatesDir = path.join(outputDir, "base-candidates");
+  await mkdir(candidatesDir, { recursive: true });
+
+  const subjects = experiment.baseImageCandidates.subjects.slice(0, experiment.baseImageCandidates.count);
+  manifest.baseImageCandidates = [];
+
+  for (const [index, subject] of subjects.entries()) {
+    const prompt = buildCandidatePrompt(experiment.baseImageCandidates.promptTemplate, subject);
+    const input = {
+      prompt,
+      image_size: experiment.baseImage.imageSize,
+      quality: experiment.baseImage.quality,
+      num_images: 1,
+      output_format: experiment.baseImage.outputFormat
+    };
+
+    const localPath = path.join(
+      candidatesDir,
+      `${String(index + 1).padStart(2, "0")}-${subject.name}.${experiment.baseImage.outputFormat}`
+    );
+
+    if (dryRun) {
+      console.log("[dry-run] candidate image request", JSON.stringify({ model: experiment.baseImage.model, input }, null, 2));
+      manifest.baseImageCandidates.push({
+        name: subject.name,
+        descriptor: subject.descriptor,
+        prompt,
+        status: "dry-run",
+        imageUrl: `dry-run://${subject.name}.${experiment.baseImage.outputFormat}`,
+        localPath
+      });
+      continue;
+    }
+
+    try {
+      console.log(`[candidate] generating ${subject.name}`);
+      const result = await fal.subscribe(experiment.baseImage.model, {
+        input,
+        logs: true,
+        onQueueUpdate: createStatusLogger(`[candidate:${subject.name}]`)
+      });
+      const imageUrl = getImageUrl(result);
+      await downloadFile(imageUrl, localPath);
+      manifest.baseImageCandidates.push({
+        name: subject.name,
+        descriptor: subject.descriptor,
+        prompt,
+        status: "succeeded",
+        imageUrl,
+        localPath,
+        providerResult: result
+      });
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      manifest.baseImageCandidates.push({
+        name: subject.name,
+        descriptor: subject.descriptor,
+        prompt,
+        status: "failed",
+        error: message
+      });
+      manifest.errors.push(`${subject.name}: ${message}`);
+      console.error(`[candidate:${subject.name}] failed: ${message}`);
+    }
+  }
+}
+
+async function upscaleSelectedBaseImage(experiment: Experiment, manifest: Manifest, outputDir: string, dryRun: boolean): Promise<string> {
+  if (!experiment.selectedBaseImage) {
+    throw new Error("This config does not define selectedBaseImage.");
+  }
+  if (!experiment.baseImageUpscale) {
+    throw new Error("This config does not define baseImageUpscale.");
+  }
+
+  const sourceImageUrl = experiment.selectedBaseImage.imageUrl;
+  const input = {
+    image_url: sourceImageUrl,
+    model: experiment.baseImageUpscale.topazModel,
+    upscale_factor: experiment.baseImageUpscale.upscaleFactor,
+    output_format: experiment.baseImageUpscale.outputFormat,
+    subject_detection: experiment.baseImageUpscale.subjectDetection,
+    face_enhancement: experiment.baseImageUpscale.faceEnhancement,
+    face_enhancement_strength: experiment.baseImageUpscale.faceEnhancementStrength
+  };
+  const localPath = path.join(outputDir, `selected-base-upscaled.${experiment.baseImageUpscale.outputFormat}`);
+
+  if (dryRun) {
+    const dryRunImageUrl = "dry-run://selected-base-upscaled";
+    console.log("[dry-run] upscale request", JSON.stringify({ model: experiment.baseImageUpscale.model, input }, null, 2));
+    manifest.baseImageUpscale = {
+      status: "dry-run",
+      sourceImageUrl,
+      imageUrl: dryRunImageUrl,
+      localPath
+    };
+    manifest.baseImage.imageUrl = dryRunImageUrl;
+    manifest.baseImage.localPath = localPath;
+    return dryRunImageUrl;
+  }
+
+  try {
+    console.log(`[upscale] enhancing ${experiment.selectedBaseImage.name}`);
+    const result = await fal.subscribe(experiment.baseImageUpscale.model, {
+      input,
+      logs: true,
+      onQueueUpdate: createStatusLogger("[upscale]")
+    });
+    const imageUrl = getOutputImageUrl(result);
+    await downloadFile(imageUrl, localPath);
+    manifest.baseImageUpscale = {
+      status: "succeeded",
+      sourceImageUrl,
+      imageUrl,
+      localPath,
+      providerResult: result
+    };
+    manifest.baseImage.imageUrl = imageUrl;
+    manifest.baseImage.localPath = localPath;
+    manifest.baseImage.providerResult = result;
+    manifest.falImageUrl = imageUrl;
+    return imageUrl;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    manifest.baseImageUpscale = {
+      status: "failed",
+      sourceImageUrl,
+      error: message
+    };
+    manifest.errors.push(`upscale: ${message}`);
+    throw error;
+  }
 }
 
 async function generateVideos(experiment: Experiment, manifest: Manifest, imageUrl: string, outputDir: string, dryRun: boolean): Promise<void> {
@@ -309,6 +521,13 @@ async function main(): Promise<void> {
 
   const manifest = options.manifestPath ? await readManifest(options.manifestPath) : createManifest(runId, options, experiment);
 
+  if (options.command === "candidates") {
+    await generateBaseImageCandidates(experiment, manifest, outputDir, options.dryRun);
+    await saveManifest(manifest, outputDir);
+    console.log(`Candidate manifest saved to ${path.join(outputDir, "manifest.json")}`);
+    return;
+  }
+
   if (options.command === "image") {
     await generateBaseImage(experiment, manifest, outputDir, options.dryRun);
     await saveManifest(manifest, outputDir);
@@ -316,9 +535,18 @@ async function main(): Promise<void> {
     return;
   }
 
+  if (options.command === "upscale") {
+    await upscaleSelectedBaseImage(experiment, manifest, outputDir, options.dryRun);
+    await saveManifest(manifest, outputDir);
+    console.log(`Upscale manifest saved to ${path.join(outputDir, "manifest.json")}`);
+    return;
+  }
+
   const imageUrl = options.imageUrl
     ?? manifest.falImageUrl
     ?? manifest.baseImage.imageUrl
+    ?? experiment.selectedBaseImage?.upscaledImageUrl
+    ?? experiment.selectedBaseImage?.imageUrl
     ?? await generateBaseImage(experiment, manifest, outputDir, options.dryRun);
 
   if (!imageUrl) {

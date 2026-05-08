@@ -1,0 +1,35 @@
+{
+  "name": "seedance-ugc-prompting",
+  "slug": "002-seedance-ugc-prompting",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "A realistic vertical beauty UGC creator start frame: a 28-year-old woman with shoulder-length warm brown hair, natural makeup, small gold hoop earrings, wearing a soft cream ribbed tank top and light cardigan, seated at a bedroom vanity with soft morning window light from camera left. Her face is readable and selfie-friendly, centered close to camera with direct eye contact, natural skin texture, expressive eyes, visible brows, lips, jaw, and hands resting near a small frosted skincare bottle. The environment includes realistic lifestyle props: a sage green Stanley-style tumbler, a Sephora-style shopping bag, minimalist skincare bottles inspired by Glossier packaging, and a white AirPods-style case on the vanity. Photorealistic creator UGC still, clean lived-in bedroom vanity, no readable text, no captions, no logos, no watermark, no phone visible in frame.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "baseline-loose-ugc",
+      "seed": 2201,
+      "prompt": "A beauty influencer makes a realistic UGC video about a skincare product in her room. She smiles, holds the product up, looks at the camera, and says, \"I really like Lumora and you should try it.\" Make it natural, viral, authentic, pretty, and engaging. Keep it vertical social media style with nice lighting. No captions, no text overlay, no watermark."
+    },
+    {
+      "name": "five-beat-structured-ugc",
+      "seed": 2202,
+      "prompt": "A 28-year-old beauty creator with shoulder-length warm brown hair, natural makeup, small gold hoop earrings, a soft cream ribbed tank top, and a light cardigan sits close to camera at her bedroom vanity. The setting is concrete and lived-in: soft morning window light from camera left, a sage green Stanley-style tumbler, a Sephora-style shopping bag, minimalist skincare bottles inspired by Glossier packaging, and a white AirPods-style case on the vanity; no readable logos, no captions, no text overlay. The camera is her phone's front-facing selfie camera; we see her face filling the frame from the phone's perspective, no phone visible in the shot, just her looking directly into the lens as if talking to followers. She lifts a small frosted skincare bottle near her cheek, taps one drop onto her fingertips, blends it gently across one cheek, then looks back into the lens and says, \"I tried Lumora this week and my skin looks way more awake before makeup.\" She finishes with a small honest smile and says, \"I would actually repurchase this.\" Subtle natural shake mimicking a propped-up phone, one continuous selfie close-up, warm window light, realistic beauty UGC, casual bedroom vanity, natural audio, authentic but polished, no cuts, no new location."
+    },
+    {
+      "name": "five-beat-pronunciation-defense",
+      "seed": 2203,
+      "prompt": "A 28-year-old beauty creator with shoulder-length warm brown hair, natural makeup, small gold hoop earrings, a soft cream ribbed tank top, and a light cardigan sits close to camera at her bedroom vanity. The setting is concrete and lived-in: soft morning window light from camera left, a sage green Stanley-style tumbler, a Sephora-style shopping bag, minimalist skincare bottles inspired by Glossier packaging, and a white AirPods-style case on the vanity; no readable logos, no captions, no text overlay. The camera is her phone's front-facing selfie camera; we see her face filling the frame from the phone's perspective, no phone visible in the shot, just her looking directly into the lens as if talking to followers. She holds a small frosted skincare bottle beside her cheek, applies a small amount to her fingertips, taps it into her skin, then slows down slightly to clearly enunciate the brand name and says, \"It's called Loo Mora, Loo Mora, and my skin actually looks awake.\" She keeps the brand-name line on camera with her mouth clearly visible, then smiles softly and says, \"That is why it is staying on my vanity.\" Subtle natural shake mimicking a propped-up phone, one continuous selfie close-up, warm window light, realistic beauty UGC, casual bedroom vanity, natural audio, authentic but polished, no cuts, no new location."
+    }
+  ]
+}

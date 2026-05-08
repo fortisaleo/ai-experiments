@@ -37,6 +37,12 @@ Run experiment 001:
 npm run generate:001
 ```
 
+Preview experiment 002:
+
+```bash
+npm run generate:002 -- --dry-run
+```
+
 Real generation calls fal.ai models and may use paid credits.
 
 ## Experiment 001: Seedance FACS
@@ -49,10 +55,66 @@ The first experiment generates facial-performance videos with fal.ai, GPT Image 
 
 The experiment is focused on FACS-style facial performance prompts: subtle action-unit controls, forced smiles, mixed signals, uncanny politeness, and close-up micro-expression details.
 
+Before generating videos, use the base-image candidate workflow to pick the strongest portrait:
+
+```bash
+npm run generate:001:candidates
+```
+
+That creates five synthetic portrait candidates with different subject descriptors. Pick one candidate image, then save it as `selectedBaseImage` in the experiment config before running the full batch.
+
+Experiment 001 currently uses candidate `04-latina` as the selected base image. The selected image is upscaled through fal Topaz before Seedance generation.
+
+```bash
+npm run generate:001:upscale
+```
+
+After the upscale completes, copy the upscaled image URL from the manifest into `selectedBaseImage.upscaledImageUrl` so future `npm run generate:001` runs use the enhanced image. Experiment 001 is currently configured to use the upscaled candidate 4 image.
+
+The stable local copy of the selected upscaled image is:
+
+```text
+outputs/001-seedance-facs/upscaled/selected-base-04-latina-topaz.png
+```
+
 Experiment files:
 
 ```text
 experiments/001-seedance-facs/
+  config.json
+  content/
+    README.md
+    launch-post.md
+    x-article.md
+```
+
+## Experiment 002: Seedance UGC 5-Beat Prompting
+
+The second experiment tests whether a structured 5-beat Seedance UGC prompt produces more usable first-generation output than a loose/vague UGC prompt.
+
+It uses a beauty product UGC scenario with generated audio enabled:
+
+1. Generates one reusable beauty creator base image.
+2. Creates a loose baseline UGC clip.
+3. Creates a structured 5-beat UGC clip.
+4. Creates a structured pronunciation-defense clip for the fictional brand `Lumora`, spoken as `Loo Mora`.
+
+Dry-run experiment 002:
+
+```bash
+npm run generate:002 -- --dry-run
+```
+
+Run experiment 002:
+
+```bash
+npm run generate:002
+```
+
+Experiment files:
+
+```text
+experiments/002-seedance-ugc-prompting/
   config.json
   content/
     README.md
@@ -72,6 +134,30 @@ Run experiment 001 explicitly:
 
 ```bash
 npm run generate:001
+```
+
+Run experiment 002 explicitly:
+
+```bash
+npm run generate:002
+```
+
+Generate base-image candidates for experiment 001:
+
+```bash
+npm run generate:001:candidates
+```
+
+Upscale the selected base image for experiment 001:
+
+```bash
+npm run generate:001:upscale
+```
+
+Dry-run candidate requests:
+
+```bash
+npm run generate:candidates -- --dry-run
 ```
 
 Preview the resolved requests without generating media:
