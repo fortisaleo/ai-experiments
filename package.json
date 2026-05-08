@@ -15,6 +15,13 @@
     "generate:001:multi-au": "tsx src/generate.ts --config experiments/001-seedance-facs/multi-au-sequence-config.json",
     "generate:001": "tsx src/generate.ts --config experiments/001-seedance-facs/config.json",
     "generate:002": "tsx src/generate.ts --config experiments/002-seedance-ugc-prompting/config.json",
+    "generate:003": "tsx src/generate.ts --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:music": "tsx src/generate.ts music --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:candidates": "tsx src/generate.ts candidates --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:image-pack": "tsx src/generate.ts image-pack --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:video": "tsx src/generate.ts video --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:assemble": "tsx src/generate.ts assemble --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "generate:003:members": "tsx src/generate.ts members --config experiments/003-kpop-idol-beauty-ugc/config.json",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

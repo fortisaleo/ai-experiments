@@ -122,6 +122,43 @@ experiments/002-seedance-ugc-prompting/
     x-article.md
 ```
 
+## Experiment 003: LUMINA K-Pop Beauty UGC
+
+The third experiment builds a staged fal.ai pipeline for a fictional K-pop idol group beauty ad.
+
+It tests whether a song-first workflow can create a reusable fictional idol group system for Beauty TikTok-style UGC:
+
+1. Generate a short Lumora glow-serum K-pop hook with MiniMax Music 2.6.
+2. Cast five fictional idol candidates with GPT Image 2.
+3. Save them as LUMINA: Rae, Jia, Sena, Nari, and Yumi.
+4. Generate a 15-image identity/storyboard pack from the selected member.
+5. Generate a 15-second Seedance 2.0 reference-to-video music-video ad.
+6. Preserve or assemble the final MP4 with ffmpeg.
+7. Generate five solo LUMINA member ads with the member batch workflow.
+
+Dry-run experiment 003:
+
+```bash
+npm run generate:003 -- --dry-run
+```
+
+Generate the first real pass. This creates the song and five idol candidates, then stops for manual selection:
+
+```bash
+npm run generate:003
+```
+
+Experiment files:
+
+```text
+experiments/003-kpop-idol-beauty-ugc/
+  config.json
+  content/
+    README.md
+    launch-post.md
+    x-article.md
+```
+
 ## Commands
 
 Generate the base image and all videos with the default experiment:
@@ -140,6 +177,48 @@ Run experiment 002 explicitly:
 
 ```bash
 npm run generate:002
+```
+
+Run experiment 003 dry-run:
+
+```bash
+npm run generate:003 -- --dry-run
+```
+
+Continue experiment 003 from an existing manifest with a single stage:
+
+```bash
+npm run generate:003:music -- --manifest outputs/003-kpop-idol-beauty-ugc/<run-id>/manifest.json
+```
+
+Generate experiment 003 idol candidates:
+
+```bash
+npm run generate:003:candidates -- --manifest outputs/003-kpop-idol-beauty-ugc/<run-id>/manifest.json
+```
+
+Generate experiment 003 image pack after selecting an idol:
+
+```bash
+npm run generate:003:image-pack -- --manifest outputs/003-kpop-idol-beauty-ugc/<run-id>/manifest.json
+```
+
+Generate experiment 003 Seedance reference video:
+
+```bash
+npm run generate:003:video -- --manifest outputs/003-kpop-idol-beauty-ugc/<run-id>/manifest.json
+```
+
+Generate five LUMINA solo member videos:
+
+```bash
+npm run generate:003:members
+```
+
+Assemble experiment 003 final video:
+
+```bash
+npm run generate:003:assemble -- --manifest outputs/003-kpop-idol-beauty-ugc/<run-id>/manifest.json
 ```
 
 Generate base-image candidates for experiment 001:

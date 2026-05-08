@@ -1,0 +1,77 @@
+{
+  "groupName": "LUMINA",
+  "runId": "2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc",
+  "sourceManifest": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/manifest.json",
+  "brandWorld": {
+    "product": "Lumora glow serum",
+    "claims": [
+      "camera-ready glow",
+      "dewy finish",
+      "pre-stage confidence"
+    ],
+    "palette": "pearl pink and chrome",
+    "safety": "LUMINA members are fictional original idols. Do not prompt for real celebrity likenesses, logos, readable labels, or clinical skincare claims."
+  },
+  "members": [
+    {
+      "id": "rae",
+      "displayName": "Rae",
+      "sourceCandidate": "luxury-muse",
+      "archetype": "Luxury beauty muse",
+      "role": "Center and premium beauty ambassador for polished serum moments and high-end backstage ads.",
+      "personality": "Elegant, calm, warm, expensive-feeling, quietly confident.",
+      "voice": "Soft-spoken but precise; speaks like a trusted beauty insider before a major stage appearance.",
+      "bestUse": "Hero product shots, vanity rituals, premium Lumora positioning, launch visuals.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/01-luxury-muse.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995818/XdWiHx9rZIWyo7cclBIah_Ugmf2CxZ.png"
+    },
+    {
+      "id": "jia",
+      "displayName": "Jia",
+      "sourceCandidate": "girl-crush-performer",
+      "archetype": "Girl-crush stage performer",
+      "role": "High-confidence performer for sharper hooks, stage cuts, and fashion-forward beauty edits.",
+      "personality": "Bold, magnetic, playful, camera-aware, slightly teasing without becoming cold.",
+      "voice": "Punchy and memorable; short lines that feel like chorus captions.",
+      "bestUse": "Dance-hook scenes, transformation beats, TikTok-first edits, bolder Lumora hooks.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/02-girl-crush-performer.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995824/bnYsKmtQpMg0Ck8aRQllQ_sG0SeD2A.png"
+    },
+    {
+      "id": "sena",
+      "displayName": "Sena",
+      "sourceCandidate": "solo-vocalist",
+      "archetype": "Elegant solo vocalist",
+      "role": "Velvet vocalist for soft-glow storytelling and intimate backstage beauty rituals.",
+      "personality": "Tender, expressive, graceful, sincere, quietly glamorous.",
+      "voice": "Lyric-led and intimate; sounds like a vocalist sharing her pre-stage ritual.",
+      "bestUse": "Close beauty shots, soft launch posts, dreamy music hooks, emotional Lumora framing.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/03-solo-vocalist.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995830/nuQk0shTH7IT_4u6w8Is6_USnKHXCF.png"
+    },
+    {
+      "id": "nari",
+      "displayName": "Nari",
+      "sourceCandidate": "dance-ace",
+      "archetype": "Dance ace performance idol",
+      "role": "Main dancer for choreography, energetic music-video cuts, and pre-stage momentum.",
+      "personality": "Athletic, focused, upbeat, reliable, radiant under pressure.",
+      "voice": "Energetic and direct; frames Lumora as the last step before lights go up.",
+      "bestUse": "Stage transitions, movement shots, rhythm-matched Seedance clips, performance ad variants.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/04-dance-ace.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a99583d/KgXiLvb-ZAqT8KEYctcE__Vc6s3mjr.png"
+    },
+    {
+      "id": "yumi",
+      "displayName": "Yumi",
+      "sourceCandidate": "fresh-idol",
+      "archetype": "Fresh approachable idol",
+      "role": "Friendliest member for UGC-feeling beauty content and approachable daily glow routines.",
+      "personality": "Bright, kind, candid, youthful, excited to share what works.",
+      "voice": "Conversational and charming; sounds like a new idol letting fans into her routine.",
+      "bestUse": "UGC-style selfie ads, softer TikTok posts, Red Note explainers, first-touch Lumora content.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/05-fresh-idol.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995849/evbZEsZVRtuHgstC76-89_3yAACUBq.png"
+    }
+  ]
+}

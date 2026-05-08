@@ -1,0 +1,246 @@
+{
+  "name": "lumina-kpop-beauty-ugc",
+  "slug": "003-kpop-idol-beauty-ugc",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "A fictional original K-pop solo idol named Mina Rae backstage before a music-video shoot, pearl pink and chrome beauty lighting, holding a small frosted Lumora glow serum bottle with no readable label, polished warm aura, direct eye contact, camera-ready dewy skin, soft vanity bulbs and chrome fixtures, realistic beauty campaign still, 9:16 vertical composition, no real person likeness, no celebrity resemblance, no logos, no readable text, no watermark.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Sparkly K-pop dance-pop beauty ad hook for fictional five-member idol group LUMINA, glossy pearl pink and chrome mood, bright synth stabs, tight pop drums, playful bass, polished female idol vocals, catchy 15-second chorus, TikTok beauty campaign energy, confident but warm, camera-ready glow, 124 BPM.",
+    "lyrics": "[Hook]\nLights on, glow up, LUMINA\nLumora shine before the stage\nDewy, dewy, banjjak hae\nCamera loves us every day\n\n[Post Chorus]\nGlow with me, Lumora\nGlow with LUMINA",
+    "lyricsOptimizer": false,
+    "isInstrumental": false,
+    "rationale": "The short hook is written before video generation so LUMINA's member lanes, visual palette, and Seedance storyboards can all orbit the same sonic identity."
+  },
+  "idolCandidates": {
+    "model": "openai/gpt-image-2",
+    "count": 5,
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "candidates": [
+      {
+        "name": "luxury-muse",
+        "archetype": "Luxury beauty muse",
+        "prompt": "A fictional original K-pop solo idol concept portrait for Mina Rae, luxury beauty muse archetype, early 20s, polished warm aura, pearl pink and chrome backstage vanity, luminous dewy skin, glossy dark espresso hair with soft face-framing layers, refined stage makeup, small chrome earrings, holding a frosted Lumora glow serum bottle with no readable label. She feels premium, approachable, and original, not based on any real person. Photorealistic vertical beauty campaign still, direct eye contact, soft vanity bulbs, no logos, no readable text, no celebrity likeness, no watermark."
+      },
+      {
+        "name": "girl-crush-performer",
+        "archetype": "Girl-crush stage performer",
+        "prompt": "A fictional original K-pop solo idol concept portrait for Mina Rae, girl-crush performer archetype, confident but warm expression, pearl pink and chrome backstage set, sleek dark hair in a high half-up style, chrome-accent stage jacket over a soft pink top, camera-ready dewy skin, holding a small frosted Lumora glow serum bottle near her cheek with no readable label. Original idol identity, not a real celebrity, not a lookalike. Photorealistic 9:16 beauty music-video still, no logos, no readable text, no watermark."
+      },
+      {
+        "name": "solo-vocalist",
+        "archetype": "Elegant solo vocalist",
+        "prompt": "A fictional original K-pop solo idol concept portrait for Mina Rae, elegant solo vocalist archetype, soft expressive eyes, polished warm backstage intimacy, pearl pink satin robe with chrome hair clips, luminous skin, natural glossy lips, vanity mirror lights behind her, one hand resting beside a frosted Lumora glow serum bottle with no readable label. Original face and styling, no real-person resemblance. Photorealistic vertical editorial beauty still, clean composition, no logos, no readable text, no watermark."
+      },
+      {
+        "name": "dance-ace",
+        "archetype": "Dance ace performance idol",
+        "prompt": "A fictional original K-pop solo idol concept portrait for Mina Rae, dance ace archetype, athletic stage poise, warm confident smile, pearl pink and chrome rehearsal-backstage environment, cropped chrome bomber, soft pink performance top, dewy skin catching stage light, holding a frosted Lumora glow serum bottle as a pre-stage ritual prop with no readable label. Original fictional idol, no celebrity likeness, no exact real-star styling. Photorealistic 9:16 beauty ad still, no logos, no readable text, no watermark."
+      },
+      {
+        "name": "fresh-idol",
+        "archetype": "Fresh approachable idol",
+        "prompt": "A fictional original K-pop solo idol concept portrait for Mina Rae, fresh approachable idol archetype, bright warm expression, pearl pink and chrome backstage vanity, soft dark hair with airy bangs, clean dewy makeup, delicate pearl accents, holding a tiny frosted Lumora glow serum bottle with no readable label. She feels like a new fictional beauty ambassador, not based on any real person. Photorealistic vertical UGC-meets-music-video still, no logos, no readable text, no watermark."
+      }
+    ]
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "backstage-vanity-intro",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, create Mina Rae backstage at a pearl pink and chrome vanity before a music video. Preserve her face, hair, skin tone, and warm polished aura. She looks into the mirror with the Lumora serum bottle on the counter, no readable label, no logos, no text."
+      },
+      {
+        "name": "serum-pickup",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae picks up a small frosted Lumora glow serum bottle near her cheek in a backstage vanity close-up. Preserve identity exactly. Pearl pink lighting, chrome reflections, camera-ready dewy skin, no readable label, no logos, no text."
+      },
+      {
+        "name": "dewy-cheek-application",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae gently taps glow serum onto one cheek in a beauty close-up. Preserve identity exactly. Soft vanity bulbs, pearl pink and chrome palette, product bottle visible but no readable label, no clinical claim visuals, no logos, no text."
+      },
+      {
+        "name": "stage-light-turn",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae turns from the backstage vanity toward a glowing music-video stage doorway. Preserve identity exactly. Pearl pink spotlights, chrome highlights, confident warm smile, serum glow visible, no logos, no readable text."
+      },
+      {
+        "name": "dance-hook-pose",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae hits a simple K-pop chorus pose under pearl pink and chrome stage lights. Preserve identity exactly. Beauty-ad polish, warm idol confidence, Lumora serum bottle tucked in foreground on a chrome vanity edge, no logos, no readable text."
+      },
+      {
+        "name": "product-macro",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as identity context, create a macro product beauty shot of a small frosted Lumora glow serum bottle in Mina Rae's hand, pearl pink chrome reflections, dewy fingertips, premium beauty ad lighting. No readable label, no logos, no text."
+      },
+      {
+        "name": "camera-ready-glance",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae gives a final camera-ready glance with glowing dewy skin, holding Lumora serum near her shoulder. Preserve identity exactly. Pearl pink and chrome stage-backstage hybrid, no logos, no readable text."
+      },
+      {
+        "name": "final-tagline-frame",
+        "type": "storyboard",
+        "prompt": "Using the selected reference image as exact identity reference, Mina Rae stands between backstage vanity lights and a chrome pink performance set, serum bottle in foreground, warm confident expression. Preserve identity exactly. Clean final frame for a beauty music-video ad, no logos, no readable text, no watermark."
+      },
+      {
+        "name": "neutral-headshot",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create a neutral front-facing Mina Rae headshot for character consistency. Pearl pink chrome beauty lighting, clean background, no product, preserve face and hair exactly, no logos, no text."
+      },
+      {
+        "name": "smile-headshot",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create Mina Rae smiling softly for a reusable identity lookbook. Preserve face and hair exactly. Pearl pink chrome beauty lighting, clean background, no logos, no text."
+      },
+      {
+        "name": "three-quarter-profile",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create a three-quarter profile of Mina Rae with the same hairstyle and makeup. Pearl pink chrome beauty lighting, clean idol lookbook frame, no logos, no text."
+      },
+      {
+        "name": "hands-product-reference",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create Mina Rae holding a frosted Lumora serum bottle in both hands for product continuity. Preserve face, hands, skin tone, and styling. No readable label, no logos, no text."
+      },
+      {
+        "name": "performance-outfit-reference",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create Mina Rae in a pearl pink and chrome K-pop performance outfit for continuity. Preserve face and hair exactly. Warm polished aura, no logos, no readable text."
+      },
+      {
+        "name": "backstage-outfit-reference",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create Mina Rae in a soft pearl pink backstage robe with chrome accessories for continuity. Preserve face and hair exactly. Vanity lighting, no logos, no readable text."
+      },
+      {
+        "name": "close-beauty-reference",
+        "type": "lookbook",
+        "prompt": "Using the selected reference image as exact identity reference, create an extreme close beauty reference of Mina Rae's face with dewy camera-ready skin. Preserve identity exactly. Pearl pink highlights, chrome catchlights, no logos, no text."
+      }
+    ]
+  },
+  "storyboard": {
+    "title": "Mina Rae Lumora 15s K-pop Beauty Hook",
+    "imageRefs": [
+      "backstage-vanity-intro",
+      "serum-pickup",
+      "dewy-cheek-application",
+      "dance-hook-pose",
+      "product-macro",
+      "final-tagline-frame"
+    ],
+    "audioRef": "music",
+    "prompt": "@Image1 is Mina Rae, a fictional original K-pop solo idol. Use @Audio1 as the music-video soundtrack and match the cuts to the hook energy. 0.0-3.0s: backstage pearl pink chrome vanity intro, Mina Rae looks into the mirror, hand near Lumora serum, soft handheld beauty-ad camera. 3.0-6.0s: cut to close-up as she picks up the frosted serum bottle and taps glow onto one cheek, camera-ready dewy finish, no readable label. 6.0-10.5s: cut to music-video performance beat, she steps toward stage light and hits one simple chorus pose, warm polished confidence, not frantic. 10.5-13.0s: cut to macro product-in-hand beauty shot with chrome reflections and pearl pink light. 13.0-15.0s: final close shot, Mina Rae glances into camera as the hook says Lumora. Preserve the same fictional idol identity across every scene. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true,
+    "seed": 3301
+  },
+  "assembly": {
+    "enabled": true,
+    "mode": "copy-seedance",
+    "musicVolume": 0.7
+  },
+  "memberVideos": {
+    "personalitiesPath": "experiments/003-kpop-idol-beauty-ugc/personalities.json",
+    "imagePack": {
+      "model": "openai/gpt-image-2/edit",
+      "imageSize": "auto",
+      "quality": "high",
+      "outputFormat": "png",
+      "frames": [
+        {
+          "name": "intro",
+          "promptTemplate": "Using the provided reference image as exact identity reference for {{displayName}} from fictional K-pop group {{groupName}}, create a vertical 9:16 intro keyframe for a Lumora glow serum solo ad. Lane: {{lane}}. Preserve her face, hair, skin tone, and styling identity. Pearl pink and chrome beauty lighting, backstage music-video environment, no logos, no readable text, no celebrity likeness."
+        },
+        {
+          "name": "product-moment",
+          "promptTemplate": "Using the provided reference image as exact identity reference for {{displayName}} from {{groupName}}, create a vertical 9:16 product moment. She holds a small frosted Lumora glow serum bottle with no readable label. Lane: {{lane}}. Preserve identity exactly, pearl pink and chrome reflections, beauty-ad polish, no logos, no readable text."
+        },
+        {
+          "name": "beauty-closeup",
+          "promptTemplate": "Using the provided reference image as exact identity reference for {{displayName}} from {{groupName}}, create a vertical 9:16 beauty close-up. Camera-ready dewy skin, soft glow, one cheek catching pearl pink light, chrome catchlights. Lane: {{lane}}. Preserve identity exactly, no clinical claim visuals, no logos, no text."
+        },
+        {
+          "name": "performance-pose",
+          "promptTemplate": "Using the provided reference image as exact identity reference for {{displayName}} from {{groupName}}, create a vertical 9:16 K-pop solo performance pose. Lane: {{lane}}. Pearl pink and chrome stage lights, confident beauty campaign energy, Lumora serum visible as a foreground prop, no logos, no readable text."
+        },
+        {
+          "name": "final-frame",
+          "promptTemplate": "Using the provided reference image as exact identity reference for {{displayName}} from {{groupName}}, create a vertical 9:16 final frame for a Lumora solo ad. Lane: {{lane}}. She looks into camera with a memorable glow-serum finish, pearl pink chrome stage-backstage hybrid, no logos, no readable text, no watermark."
+        }
+      ]
+    },
+    "referenceVideo": {
+      "model": "bytedance/seedance-2.0/reference-to-video",
+      "resolution": "720p",
+      "duration": "15",
+      "aspectRatio": "9:16",
+      "generateAudio": true
+    },
+    "members": [
+      {
+        "id": "rae",
+        "lane": "premium vanity glow, luxury beauty muse, polished center energy",
+        "seed": 3401,
+        "storyboardPrompt": "@Image1 is {{displayName}} from fictional K-pop group {{groupName}}. Use @Audio1 as the LUMINA Lumora soundtrack. 0.0-3.0s: premium backstage vanity intro, {{displayName}} turns toward camera in pearl pink chrome light. 3.0-6.0s: product moment, she lifts the frosted Lumora serum bottle near her cheek with no readable label. 6.0-10.5s: beauty close-up, dewy camera-ready glow catches the vanity lights, elegant calm expression. 10.5-13.0s: slow luxury performance pose under chrome stage light. 13.0-15.0s: final confident glance into camera. Preserve {{displayName}}'s identity exactly. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+      },
+      {
+        "id": "jia",
+        "lane": "chrome girl-crush stage hook, bold fashion-forward beauty edit",
+        "seed": 3402,
+        "storyboardPrompt": "@Image1 is {{displayName}} from fictional K-pop group {{groupName}}. Use @Audio1 as the LUMINA Lumora soundtrack. 0.0-3.0s: chrome backstage stage entrance, {{displayName}} gives a bold side glance. 3.0-6.0s: product moment, she snaps the frosted Lumora serum bottle into frame, no readable label. 6.0-10.5s: sharp solo hook pose with pearl pink lights and chrome reflections, confident but not frantic. 10.5-13.0s: beauty close-up, dewy skin and playful expression. 13.0-15.0s: final girl-crush camera hit. Preserve {{displayName}}'s identity exactly. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+      },
+      {
+        "id": "sena",
+        "lane": "soft vocalist backstage glow ritual, intimate velvet beauty mood",
+        "seed": 3403,
+        "storyboardPrompt": "@Image1 is {{displayName}} from fictional K-pop group {{groupName}}. Use @Audio1 as the LUMINA Lumora soundtrack. 0.0-3.0s: soft backstage vocalist intro, {{displayName}} sits near vanity bulbs in pearl pink light. 3.0-6.0s: product moment, she opens her hand around the frosted Lumora serum bottle, no readable label. 6.0-10.5s: intimate beauty close-up as she taps glow onto one cheek, warm sincere expression. 10.5-13.0s: gentle performance pose as if singing the hook. 13.0-15.0s: final soft smile into camera. Preserve {{displayName}}'s identity exactly. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+      },
+      {
+        "id": "nari",
+        "lane": "dance-performance pre-stage momentum, kinetic glow before lights up",
+        "seed": 3404,
+        "storyboardPrompt": "@Image1 is {{displayName}} from fictional K-pop group {{groupName}}. Use @Audio1 as the LUMINA Lumora soundtrack. 0.0-3.0s: dance rehearsal backstage intro, {{displayName}} rolls her shoulders under pearl pink chrome lights. 3.0-6.0s: product moment, she taps Lumora serum before stepping toward stage, bottle has no readable label. 6.0-10.5s: one clean dance-hook move synced to the music, athletic and controlled. 10.5-13.0s: close-up glow check with confident smile. 13.0-15.0s: final performance pose in chrome light. Preserve {{displayName}}'s identity exactly. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+      },
+      {
+        "id": "yumi",
+        "lane": "approachable UGC backstage bloom, friendly daily glow routine",
+        "seed": 3405,
+        "storyboardPrompt": "@Image1 is {{displayName}} from fictional K-pop group {{groupName}}. Use @Audio1 as the LUMINA Lumora soundtrack. 0.0-3.0s: friendly backstage selfie-style intro, {{displayName}} smiles near a pearl pink chrome vanity. 3.0-6.0s: product moment, she holds the frosted Lumora serum bottle close to camera, no readable label. 6.0-10.5s: beauty close-up, she taps one cheek and reacts with a bright natural smile. 10.5-13.0s: small playful performance pose to the hook. 13.0-15.0s: final approachable wave-glance into camera. Preserve {{displayName}}'s identity exactly. No real celebrity likeness, no logos, no readable text, no captions, no clinical skincare claims."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "fallback-image-to-video",
+      "seed": 3301,
+      "prompt": "Fallback only. Mina Rae, a fictional original K-pop solo idol, performs a 15-second backstage pearl pink and chrome beauty music-video ad for Lumora glow serum. No celebrity likeness, no logos, no readable text, no clinical skincare claims."
+    }
+  ]
+}
