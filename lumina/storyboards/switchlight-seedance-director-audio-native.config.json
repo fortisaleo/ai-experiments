@@ -1,0 +1,40 @@
+{
+  "name": "switchlight-seedance-director-audio-native",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config regenerates the director cut in Seedance with native audio guidance.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "storyboard": {
+    "title": "Switchlight Director Audio Native",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a998fa4/hGKsbjxrNFy2sscB42HAe_1778359407283.png"
+    ],
+    "audioUrl": "https://v3b.fal.media/files/b/0a999a5e/vDKoVm5yXcCkbXIldYVSu_1778386861626.mpeg",
+    "prompt": "@Audio1 is the 15-second Switchlight hook audio. Use @Image1, the original hand-drawn director storyboard, as the complete shot-order, camera, movement, lighting, and emotional-progression source for a 15-second LUMINA comeback music video.\n\nFollow the 12 storyboard panels sequentially from left to right, top to bottom. Convert the drawn director board into a photoreal premium K-pop MV, but preserve the panel order, camera grammar, body movement arrows, framing variety, lighting beats, and final pose. Do not skip, merge, or reorder the beats.\n\nCompress the full 12-beat story into the 15-second audio: backstage mirror nerves, Jia chrome sleeve spark, group breath and room lights, stepping through the line, hallway glow, Sena vocal light bloom, vanity mirror future, Nari switch cue, hook formation, step-pose-shine hit, Jia/Nari rap charge, final group hero under chrome arch. Use urgent rhythm, quick cuts, match cuts, mirror cuts, hallway-to-stage whip transitions, and light-switch transitions synced to @Audio1. No long pauses until the final beat.\n\nKeep the same five fictional LUMINA members across the whole film: Rae, Jia, Sena, Nari, and Yumi. Maintain a coordinated pearl/chrome/black wardrobe with baby-pink accents and distinct silhouettes. Preserve faces, hairstyles, body proportions, and member roles. No duplicated members, no outfit swaps, no hairstyle changes, no face changes.\n\nUse one coherent venue: backstage dressing room to chrome hallway to stage threshold to activated pearl/chrome stage. Show live singing energy, visible breath, mouth movement, facial intensity, fabric and hair motion, floor contact, and natural reflections. Final group hero pose holds for the last 1 second.\n\nNo text, no annotations, no readable logos, no watermark, no product props, no Lumora, no beauty claims, no real celebrity likenesses, no copied choreography, no anime, no sketch style in the final video, no plastic CGI, no random AI drifting, no melted bodies, no floating feet."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true,
+    "seed": 12014
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

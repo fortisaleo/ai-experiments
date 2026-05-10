@@ -1,0 +1,43 @@
+{
+  "name": "switchlight-seedance-photoreal-split-b",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "storyboard": {
+    "title": "Switchlight Photoreal Split B",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a998f4e/W9_ElE1bAl1EA0kysqVX6_image.png",
+      "https://v3b.fal.media/files/b/0a998f50/ZzqFWGh1H66BEFBN-mlCB_image.png",
+      "https://v3b.fal.media/files/b/0a998f54/406YghAHXQUEgYNfwA03i_image.png",
+      "https://v3b.fal.media/files/b/0a998f56/8oEKCDhCrc5OcWP-XLkGh_image.png"
+    ],
+    "audioUrl": "https://v3b.fal.media/files/b/0a999aa5/vqS2LE-LYm-jERKgnocXr_switchlight-hook-start-part-b-7s.mp3",
+    "prompt": "@Audio1 is the final 7.1 seconds of the Switchlight hook. Use @Image1 through @Image4 as strict sequential photoreal keyframes for the second half of the music video. Follow them in order: @Image1 Nari switch cue at the stage threshold, @Image2 full hook formation, @Image3 Jia and Nari rap charge, @Image4 final group hero under the chrome arch. Include vanity mirror self-recognition as a very fast transition before @Image1 and one step-pose-shine hit between @Image2 and @Image3. Keep the same five fictional LUMINA members, fixed pearl/chrome/black wardrobe with baby-pink accents, same hairstyles, same faces, and one coherent threshold-to-stage venue. Use urgent hook rhythm, light-switch transitions, low-angle performance hits, clean orbit motion, live singing mouth movement, realistic hair and fabric motion, floor contact, natural reflections, and hold the final @Image4-inspired group hero for the last 1 second. No text, annotations, logos, watermark, products, Lumora, real celebrity likenesses, copied choreography, outfit swaps, duplicated members, anime, sketch look, plastic CGI, melted bodies, or floating feet."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "7",
+    "aspectRatio": "16:9",
+    "generateAudio": true,
+    "seed": 12013
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "7",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "name": "switchlight-12-panel-gpt-panel-09-retry",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this retry config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "personalitiesPath": "experiments/003-kpop-idol-beauty-ugc/personalities.json",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-09-hook-formation-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "nari"],
+        "prompt": "Create a horizontal 16:9 hand-drawn director storyboard panel for LUMINA's Switchlight hook. Use Rae, Jia, and Nari as identity anchors. First full stage reveal: Rae center, Jia and Nari as sharp side anchors, Sena and Yumi suggested as softer framing figures. Original light-switch hand gesture near shoulder height. Chrome stage, pearl light panels, reflective black floor. Add colored production notes like a storyboard: red body arrows for the gesture, blue camera push note, orange lights brighten note, green diagonal formation note, purple title hook note. Pencil-and-marker director board style, not a photoreal final frame. No real celebrity likeness, no copied choreography, no logos, no product props."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This retry config generates GPT panel 9 only."
+    }
+  ]
+}

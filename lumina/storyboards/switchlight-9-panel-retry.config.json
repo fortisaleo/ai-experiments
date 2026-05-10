@@ -1,0 +1,70 @@
+{
+  "name": "switchlight-9-panel-missing-panels-retry",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frame imageRefs from the retry personality registry.",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this retry config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-9-panel-retry-personalities.json",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-04-yumi-sena-hallway-glow-retry",
+        "type": "storyboard",
+        "imageRefs": ["yumi", "sena", "set-anchor"],
+        "prompt": "Use Yumi and Sena as exact identity anchors. Use the set-anchor image only for the same pearl/chrome/black MV set, wardrobe family, and lighting continuity. Panel 4: Yumi and Sena have just exited the dressing room into the same chrome hallway; Yumi turns back warmly to camera while walking, Sena sings softly beside a pearl light bloom, and Rae/Jia/Nari appear only as distant soft silhouettes behind them. Deep hallway perspective, diagonal pearl light strips, reflective black floor, stage threshold ahead. Preserve Yumi and Sena faces and hair exactly. No text, logos, product props, beauty claims, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-06-nari-switch-the-light-retry",
+        "type": "storyboard",
+        "imageRefs": ["nari", "set-anchor"],
+        "prompt": "Use Nari as exact identity anchor. Use the set-anchor image only for the same dressing-room-to-stage set, wardrobe family, pearl/chrome lighting, and reflective floor continuity. Panel 6: Nari steps through the chrome hallway threshold and cues the first dance count with one lifted hand; the other LUMINA members are present as readable but softer background figures entering their lanes. Floor tape lines lead toward three pearl stage panels switching on. Preserve Nari face, hair, body proportions, and athletic dancer archetype exactly. No text, logos, product props, beauty claims, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-07-hook-hand-gesture-retry",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "nari", "set-anchor"],
+        "prompt": "Use Rae, Jia, and Nari as exact identity anchors. Use the set-anchor image only for the same pearl/chrome/black set and wardrobe continuity. Panel 7: the group has reached the stage; Rae stands centered, Jia anchors one sharp side, Nari anchors the other, with Sena and Yumi as softer framing figures. Original light-switch hand gesture near shoulder height, three vertical pearl panels brighten behind them, chrome side arches, reflective black floor. Preserve the anchored faces and hair exactly. No text, logos, product props, beauty claims, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-08-step-pose-shine-hit-retry",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "nari", "set-anchor"],
+        "prompt": "Use Rae, Jia, and Nari as exact identity anchors. Use the set-anchor image only for stage, wardrobe, and lighting continuity. Panel 8: low-angle performance hit after one forward step. Rae holds polished center stillness, Jia and Nari land sharper movement tension, Sena and Yumi frame as softer side figures. Five pearl light columns align to five members, chrome floor reflections under their feet, precise commercial MV pose. Preserve anchored faces and hair exactly. No text, logos, product props, beauty claims, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-09-final-switchlight-pose-retry",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena-panel", "nari", "yumi", "set-anchor"],
+        "prompt": "Use Rae, Jia, Nari, and Yumi as exact identity anchors; use the Sena panel anchor for Sena continuity; use the set-anchor only for the same stage, wardrobe, and lighting. Panel 9: final Switchlight title pose with all five members under fully activated pearl/chrome lights, chrome arches like an opened doorway, reflective black floor glow, clean final camera lock. Rae calm center, Jia angled and confident, Sena luminous, Nari grounded, Yumi warm. Preserve faces and hair exactly. No text, logos, product props, beauty claims, real celebrity likeness, or copied choreography."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This retry config generates missing image-pack panels only."
+    }
+  ]
+}

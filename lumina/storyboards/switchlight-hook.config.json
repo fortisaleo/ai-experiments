@@ -1,0 +1,51 @@
+{
+  "name": "switchlight-hook-performance",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Reference image URLs come from the Switchlight hook manifest.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this config.",
+    "lyrics": "Accepted Switchlight audio is supplied by manifest audio URL.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "storyboard": {
+    "title": "Switchlight Hook Performance",
+    "imageRefs": [
+      "member-rae",
+      "member-jia",
+      "member-sena",
+      "member-nari",
+      "member-yumi"
+    ],
+    "audioRef": "music",
+    "prompt": "@Audio1 is the accepted Switchlight hook by fictional original K-pop group LUMINA. Use the five reference images as identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create a 15-second vertical 9:16 music-video hook performance on a chrome stage with pearl pink light panels. The choreography is original and simple: light-switch hand gesture, step, pose, shine, turn, then a clean final group hit on the title phrase. Rae holds center polish and first camera lock, Jia adds sharp girl-crush attitude, Sena gets a soft vocal close-up, Nari cues the clean dance count, and Yumi gives bright fan-cam warmth near the final hit. Music-video energy, polished camera cuts, no real celebrity likeness, no copied choreography from real groups, no readable logos, no captions, no clinical skincare claims. This should read as a LUMINA group performance, not a product ad."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true,
+    "seed": 3501
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use the referenceVideo command for this config."
+    }
+  ]
+}

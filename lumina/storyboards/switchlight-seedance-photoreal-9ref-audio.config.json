@@ -1,0 +1,48 @@
+{
+  "name": "switchlight-seedance-photoreal-9ref-audio",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config generates a Seedance reference video from 9 photoreal keyframes and 15s hook audio.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "storyboard": {
+    "title": "Switchlight Photoreal 9Ref Audio",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a998f43/DXCnbhxElhZtuP3ihnJjj_image.png",
+      "https://v3b.fal.media/files/b/0a998f45/XmQsgMyJk2J2GDPaSOU_L_image.png",
+      "https://v3b.fal.media/files/b/0a998f46/UVhorgssR7LZt5psmjWzj_image.png",
+      "https://v3b.fal.media/files/b/0a998f48/hTv7zUYfBuYhZEH-a_wmm_image.png",
+      "https://v3b.fal.media/files/b/0a998f4b/YQrSk2mW50mhqf1V_MVIu_image.png",
+      "https://v3b.fal.media/files/b/0a998f4e/W9_ElE1bAl1EA0kysqVX6_image.png",
+      "https://v3b.fal.media/files/b/0a998f50/ZzqFWGh1H66BEFBN-mlCB_image.png",
+      "https://v3b.fal.media/files/b/0a998f54/406YghAHXQUEgYNfwA03i_image.png",
+      "https://v3b.fal.media/files/b/0a998f56/8oEKCDhCrc5OcWP-XLkGh_image.png"
+    ],
+    "audioUrl": "https://v3b.fal.media/files/b/0a999a5e/vDKoVm5yXcCkbXIldYVSu_1778386861626.mpeg",
+    "prompt": "@Audio1 is the 15-second Switchlight hook audio. Use @Image1 through @Image9 as strict sequential photoreal storyboard keyframes for a premium LUMINA comeback music video. Follow the images in exact order; do not skip, merge, or reorder them.\n\n@Image1: backstage mirror nerves, Rae calm center with all five reflected. @Image2: Jia chrome jacket spark. @Image3: group breath, dressing room lights switch on. @Image4: group exits dressing room into chrome hallway. Between @Image4 and @Image5, include Yumi and Sena hallway glow as a quick passing beat. @Image5: Sena vocal light bloom and color rise. Between @Image5 and @Image6, include vanity mirror self-recognition as a fast mirror transition. @Image6: Nari switch cue at the threshold. @Image7: full hook formation. Between @Image7 and @Image8, include one step-pose-shine hit. @Image8: Jia and Nari rap charge. @Image9: final group hero under chrome arch, held for the last 1 second.\n\nKeep the same five fictional LUMINA members across the entire 15-second film: Rae, Jia, Sena, Nari, and Yumi. Preserve faces, hairstyles, body proportions, member roles, and fixed wardrobe from the keyframes. No duplicated members, no outfit swaps, no hairstyle changes, no face changes.\n\nUse one coherent physical venue: backstage dressing room to chrome hallway to stage threshold to activated pearl/chrome stage. Maintain pearl/chrome/black lighting with baby-pink accents. Use urgent music-video rhythm synced to @Audio1: quick cuts, match cuts, mirror cuts, hallway tracking, light-switch transitions, low-angle performance hits, clean orbit motion, realistic hair and fabric motion, floor contact, natural reflections, visible breath, and live singing mouth movement.\n\nFinal beat: hold @Image9-inspired final group hero pose for the last 1 second. No text, no annotations, no readable logos, no watermark, no product props, no Lumora, no beauty claims, no real celebrity likenesses, no copied choreography, no anime, no sketch style, no plastic CGI, no random AI drifting, no melted bodies, no floating feet."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true,
+    "seed": 12012
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

@@ -1,0 +1,96 @@
+{
+  "groupName": "LUMINA",
+  "runId": "2026-05-09T02-03-32-188Z-switchlight-9-panel-storyboard",
+  "sourceManifest": "outputs/lumina-switchlight/2026-05-09T02-03-32-188Z-switchlight-9-panel-storyboard/manifest.json",
+  "brandWorld": {
+    "palette": "pearl, chrome, black, pearl pink light accents",
+    "safety": "Fictional original LUMINA members only. No real celebrity likenesses, readable logos, captions, product props, beauty claims, or copied choreography."
+  },
+  "members": [
+    {
+      "id": "rae",
+      "displayName": "Rae",
+      "sourceCandidate": "luxury-muse",
+      "archetype": "Calm polished center",
+      "role": "Center alignment point from mirror intro to final pose.",
+      "personality": "Elegant, calm, warm, quietly confident.",
+      "voice": "Soft-spoken but precise.",
+      "bestUse": "Center framing and final group alignment.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/01-luxury-muse.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995818/XdWiHx9rZIWyo7cclBIah_Ugmf2CxZ.png"
+    },
+    {
+      "id": "jia",
+      "displayName": "Jia",
+      "sourceCandidate": "girl-crush-performer",
+      "archetype": "Sharp girl-crush performer",
+      "role": "Chrome jacket attitude and hook edge.",
+      "personality": "Bold, magnetic, playful, camera-aware.",
+      "voice": "Punchy and memorable.",
+      "bestUse": "Sharp hook angles and jacket-switch movement.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/02-girl-crush-performer.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995824/bnYsKmtQpMg0Ck8aRQllQ_sG0SeD2A.png"
+    },
+    {
+      "id": "sena",
+      "displayName": "Sena",
+      "sourceCandidate": "solo-vocalist",
+      "archetype": "Soft velvet vocalist",
+      "role": "Pre-hook emotional lift and luminous stage frame.",
+      "personality": "Tender, expressive, graceful, sincere.",
+      "voice": "Lyric-led and intimate.",
+      "bestUse": "Soft vocal close-ups and light bloom framing.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/03-solo-vocalist.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995830/nuQk0shTH7IT_4u6w8Is6_USnKHXCF.png"
+    },
+    {
+      "id": "nari",
+      "displayName": "Nari",
+      "sourceCandidate": "dance-ace",
+      "archetype": "Athletic main dancer",
+      "role": "Count leader and step-pose driver.",
+      "personality": "Athletic, focused, upbeat, reliable.",
+      "voice": "Energetic and direct.",
+      "bestUse": "Threshold count, clean dance hits, kinetic stage transitions.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/04-dance-ace.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a99583d/KgXiLvb-ZAqT8KEYctcE__Vc6s3mjr.png"
+    },
+    {
+      "id": "yumi",
+      "displayName": "Yumi",
+      "sourceCandidate": "fresh-idol",
+      "archetype": "Warm fan-facing idol",
+      "role": "Hallway fan-cam warmth and final audience connection.",
+      "personality": "Bright, kind, candid, excited.",
+      "voice": "Conversational and charming.",
+      "bestUse": "Warm camera connection and approachable close-ups.",
+      "localPath": "outputs/003-kpop-idol-beauty-ugc/2026-05-08T05-12-38-157Z-mina-rae-kpop-beauty-ugc/idol-candidates/05-fresh-idol.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a995849/evbZEsZVRtuHgstC76-89_3yAACUBq.png"
+    },
+    {
+      "id": "set-anchor",
+      "displayName": "Switchlight Set Anchor",
+      "sourceCandidate": "panel-03-group-backstage-ignition",
+      "archetype": "Shared MV set reference",
+      "role": "Preserve the same dressing-room, hallway doorway, pearl/chrome/black lighting, and group wardrobe system across retry panels.",
+      "personality": "Not a character; use only as set, lighting, wardrobe, and visual-continuity reference.",
+      "voice": "N/A",
+      "bestUse": "Set continuity anchor.",
+      "localPath": "outputs/lumina-switchlight/2026-05-09T02-03-32-188Z-switchlight-9-panel-storyboard/image-pack/03-storyboard-panel-03-group-backstage-ignition.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a997581/eWggY9pjX_Zl-4Tm-FA7W_9H0TTp40.png"
+    },
+    {
+      "id": "sena-panel",
+      "displayName": "Sena Panel Anchor",
+      "sourceCandidate": "panel-05-sena-vanity-prehook",
+      "archetype": "Sena pre-hook continuity reference",
+      "role": "Preserve Sena's accepted pre-hook styling, lighting, and wardrobe continuity.",
+      "personality": "Not a new character; use as continuity reference for Sena only.",
+      "voice": "N/A",
+      "bestUse": "Sena continuity anchor.",
+      "localPath": "outputs/lumina-switchlight/2026-05-09T02-03-32-188Z-switchlight-9-panel-storyboard/image-pack/05-storyboard-panel-05-sena-vanity-prehook.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a99759b/buOFUPNualiqVBbQj2bzu_IekqEfTV.png"
+    }
+  ]
+}
+

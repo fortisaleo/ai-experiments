@@ -1,0 +1,13 @@
+{
+  "groupName": "LUMINA",
+  "members": [
+    { "id": "rae", "displayName": "Rae", "imageUrl": "https://v3b.fal.media/files/b/0a995818/XdWiHx9rZIWyo7cclBIah_Ugmf2CxZ.png" },
+    { "id": "jia", "displayName": "Jia", "imageUrl": "https://v3b.fal.media/files/b/0a995824/bnYsKmtQpMg0Ck8aRQllQ_sG0SeD2A.png" },
+    { "id": "sena", "displayName": "Sena", "imageUrl": "https://v3b.fal.media/files/b/0a995830/nuQk0shTH7IT_4u6w8Is6_USnKHXCF.png" },
+    { "id": "nari", "displayName": "Nari", "imageUrl": "https://v3b.fal.media/files/b/0a99583d/KgXiLvb-ZAqT8KEYctcE__Vc6s3mjr.png" },
+    { "id": "yumi", "displayName": "Yumi", "imageUrl": "https://v3b.fal.media/files/b/0a995849/evbZEsZVRtuHgstC76-89_3yAACUBq.png" },
+    { "id": "mirror-ref", "displayName": "Mirror/backstage source", "imageUrl": "https://v3b.fal.media/files/b/0a998f43/DXCnbhxElhZtuP3ihnJjj_image.png" },
+    { "id": "hallway-ref", "displayName": "Hallway/threshold source", "imageUrl": "https://v3b.fal.media/files/b/0a998f4e/W9_ElE1bAl1EA0kysqVX6_image.png" },
+    { "id": "stage-ref", "displayName": "Stage/final command source", "imageUrl": "https://v3b.fal.media/files/b/0a998f56/8oEKCDhCrc5OcWP-XLkGh_image.png" }
+  ]
+}

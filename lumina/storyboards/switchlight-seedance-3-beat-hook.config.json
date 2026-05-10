@@ -1,0 +1,42 @@
+{
+  "name": "switchlight-seedance-3-beat-hook",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config generates a Seedance reference video from the approved 3-beat Switchlight storyboard.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "storyboard": {
+    "title": "Switchlight 3 Beat Hook",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a999b61/Qg8aerwhToJ2_3hdG-H1I_z8FSFVvN.png",
+      "https://v3b.fal.media/files/b/0a999b63/Tmw5Ilyuk5BvxqpqRzvKh_NrJ0oa9I.png",
+      "https://v3b.fal.media/files/b/0a999b64/jjZMeD4jn9KcqEbc_wC-0_2clInwe1.png"
+    ],
+    "audioUrl": "https://v3b.fal.media/files/b/0a999a5e/vDKoVm5yXcCkbXIldYVSu_1778386861626.mpeg",
+    "prompt": "@Audio1 is the 14.94-second Switchlight hook audio. Use @Image1, @Image2, and @Image3 as the complete 3-beat storyboard for a premium LUMINA comeback music video. Convert the director-board sketches into photoreal K-pop MV motion while preserving their timing, camera logic, lighting cues, and choreography notes.\n\n0.0-3.5s, @Image1 Mirror Charge: Rae anchors the backstage mirror, all five members visible through reflection and depth. One shared breath. Dim pearl bulbs begin to glow. Slow push-in, private nerves becoming stage charge.\n\n3.5-7.5s, @Image2 Hallway Switch: the group advances through the chrome hallway. Nari cues the original switchlight gesture: hand rises near shoulder, wrist flicks downward like a light switch. Pearl hallway lights ignite behind them in sequence. Smooth tracking camera, urgent forward momentum.\n\n7.5-15.0s, @Image3 Stage Hook / Final Command: full group performance on the chrome stage. Rae center; Jia and Nari drive sharp hook energy; Sena and Yumi frame the formation. Repeat the switchlight gesture, pearl panels ignite on the flick, then all five step forward into the 'Step, pose, shine' hit. Hold the final hero pose for the last 1 second.\n\nKeep the same five fictional LUMINA members across the entire film: Rae, Jia, Sena, Nari, and Yumi. Preserve faces, hairstyles, body proportions, member roles, and coordinated pearl/chrome/black wardrobe with baby-pink accents. Do not duplicate members, swap outfits, change hairstyles, or change faces.\n\nUse one coherent venue: dressing room to chrome hallway to activated pearl/chrome stage. Show live singing mouth movement, visible breath, natural hair and fabric motion, real floor contact, and physically consistent reflections. Camera movement should feel like a real MV rig: stable push-in, tracking hallway move, low-angle stage push, then locked final camera.\n\nNo Lumora, no product props, no beauty claims, no readable text, no annotations in the final video, no logos, no watermark, no real celebrity likenesses, no copied choreography, no anime, no sketch style in final output, no plastic CGI, no random AI drifting, no melted bodies, no floating feet."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true,
+    "seed": 12015
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

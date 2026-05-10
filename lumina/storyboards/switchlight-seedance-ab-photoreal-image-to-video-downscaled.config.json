@@ -1,0 +1,30 @@
+{
+  "name": "switchlight-seedance-ab-photoreal-image-to-video-downscaled",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "photoreal wardrobe-locked storyboard downscaled Seedance source",
+    "imageUrl": "https://v3b.fal.media/files/b/0a998fe6/_muoIMfAtyWFPfLBbjqnr_1778360066947.png",
+    "localPath": "/Users/aneurycasado/Development/fortisaleo/ai-experiments/outputs/lumina-switchlight/2026-05-09T20-23-36-679Z-switchlight-12-panel-nano-banana-2-photoreal-wardrobe-locked/switchlight-nano-banana-2-photoreal-wardrobe-locked-seedance-source-1740.png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": false
+  },
+  "clips": [
+    {
+      "name": "switchlight-ab-photoreal-downscaled",
+      "seed": 12012,
+      "prompt": "Use this photoreal wardrobe-locked storyboard sheet as the complete source for a 15-second LUMINA Switchlight comeback music video. Follow all 12 panels sequentially from left to right, top to bottom. Do not skip, merge, reorder, or reinterpret the beats. Compress the 12-beat arc into fast cinematic snapshots with urgent rhythm, quick cuts, match cuts, mirror cuts, hallway-to-stage whip transitions, and light-switch transitions. No long pauses until the final beat. Keep the same five fictional LUMINA members across the whole film: Rae, Jia, Sena, Nari, and Yumi. Preserve the wardrobe shown in the storyboard: pearl/chrome/black with baby-pink accents, no outfit swaps, no hairstyle changes, no duplicated members. Story arc: backstage mirror nerves, Jia chrome jacket spark, group breath and room lights, dressing-room exit, Yumi/Sena hallway glow, Sena vocal light bloom, vanity reflection future, Nari switch cue at threshold, full hook formation, step-pose-shine hit, Jia/Nari rap charge, final group hero under chrome arch. Keep one coherent venue: dressing room to chrome hallway to activated pearl/chrome stage. Premium photoreal music-video camera language: stable handheld drift, smooth tracking, mirror push-ins, low-angle stage hits, clean orbit motion, fast performance cuts. Show live singing energy, visible breath, mouth movement, fabric and hair motion, floor contact, and emotional escalation from private nerves to confident stage command. Final panel holds for the last 1 second. No text, no annotations, no readable logos, no watermark, no product props, no beauty claims, no real celebrity likenesses, no copied choreography, no anime, no sketch style, no plastic CGI, no random AI drifting, no melted bodies, no floating feet."
+    }
+  ]
+}

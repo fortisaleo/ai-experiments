@@ -1,0 +1,22 @@
+{
+  "groupName": "LUMINA",
+  "members": [
+    { "id": "rae", "displayName": "Rae", "imageUrl": "https://v3b.fal.media/files/b/0a995818/XdWiHx9rZIWyo7cclBIah_Ugmf2CxZ.png" },
+    { "id": "jia", "displayName": "Jia", "imageUrl": "https://v3b.fal.media/files/b/0a995824/bnYsKmtQpMg0Ck8aRQllQ_sG0SeD2A.png" },
+    { "id": "sena", "displayName": "Sena", "imageUrl": "https://v3b.fal.media/files/b/0a995830/nuQk0shTH7IT_4u6w8Is6_USnKHXCF.png" },
+    { "id": "nari", "displayName": "Nari", "imageUrl": "https://v3b.fal.media/files/b/0a99583d/KgXiLvb-ZAqT8KEYctcE__Vc6s3mjr.png" },
+    { "id": "yumi", "displayName": "Yumi", "imageUrl": "https://v3b.fal.media/files/b/0a995849/evbZEsZVRtuHgstC76-89_3yAACUBq.png" },
+    { "id": "sketch-01", "displayName": "Panel 1 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cb8/3GuJCDD-81cU20wdjtKQv_c6TxDppq.png" },
+    { "id": "sketch-02", "displayName": "Panel 2 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cba/v5yt7iOEIZpJIzI5b6Kix_54Cfj1KM.png" },
+    { "id": "sketch-03", "displayName": "Panel 3 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cbc/sTnBC5MiDO3rCkz__GlKi_mSENEAjz.png" },
+    { "id": "sketch-04", "displayName": "Panel 4 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cbd/dyRZ4BgM9tU704_pfWPf1_sFAr1XLq.png" },
+    { "id": "sketch-05", "displayName": "Panel 5 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cbf/3xyyrtrwCf6paQMcQLKrD_QVftUAWC.png" },
+    { "id": "sketch-06", "displayName": "Panel 6 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc0/vFMadzgMva76sIagw89SW_qdK5PaYs.png" },
+    { "id": "sketch-07", "displayName": "Panel 7 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc2/XnDDAnC1ZGnJ-iI4ds-ag_KN7dlYJH.png" },
+    { "id": "sketch-08", "displayName": "Panel 8 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc3/XJW-JQEX1kHiTPFDQvKJQ_Cqv8BLm4.png" },
+    { "id": "sketch-09", "displayName": "Panel 9 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc5/lrSuQrSPBlou1ySnqjRpF_lZHN4WTG.png" },
+    { "id": "sketch-10", "displayName": "Panel 10 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc6/gszwp0p8Miz_qpOk1_gFy_YjvAlLBa.png" },
+    { "id": "sketch-11", "displayName": "Panel 11 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc8/XSS_q-HKb9aCCKo1XD32C_FqXOkcLA.png" },
+    { "id": "sketch-12", "displayName": "Panel 12 composition", "imageUrl": "https://v3b.fal.media/files/b/0a998cc9/WKPIQVZYH3-zDviMxP1Le_Sw3ukUo0.png" }
+  ]
+}

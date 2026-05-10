@@ -1,0 +1,32 @@
+{
+  "name": "switchlight",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Do not generate a base image from this config.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Glossy K-pop girl group house-pop single for fictional five-member group LUMINA, 124 BPM, pearl pink and chrome stage mood, pulsing four-on-the-floor drums, glassy synth bass, tight clap stack, confident female group vocals, soft pre-chorus lift, chantable hook, short rap tag, polished but not aggressive, global pop mix, 65 seconds.",
+    "lyrics": "[Intro: Rae]\nBack door, heartbeat, mirror light\nChrome on my sleeve like a satellite\nOne breath, then the whole room shines\nLUMINA stepping through the line\n\n[Verse: Yumi, Sena]\nI was quiet in the hallway glow\nCounting every second till the speakers blow\nSena sings it soft, let the color rise\nPink flash blooming in my eyes\n\n[Pre-Hook: Sena]\nIf the night gets loud, I get clearer\nSee the future in the vanity mirror\nHands up, no fear, we ignite\nTell the whole room, switch the light\n\n[Hook: All]\nSwitchlight, switchlight\nTurn me on when the beat hits right\nSwitchlight, switchlight\nPearl pink flash in the chrome moonlight\nStep, pose, shine, don't blink\nWe make the dark room glow in sync\nSwitchlight, switchlight\nLUMINA lives when the lights go bright\n\n[Rap Tag: Jia, Nari]\nClick, click, camera, catch my angle\nNew code running through my ankle\nNari on the count, Jia on the flame\nSay our name and the whole wall changes\n\n[Final Hook: All]\nSwitchlight, switchlight\nTurn me on when the beat hits right\nSwitchlight, switchlight\nPearl pink flash in the chrome moonlight\nOne more pose, one more shine\nLUMINA crossing every line\nSwitchlight, switchlight\nMeet us where the lights go bright",
+    "lyricsOptimizer": false,
+    "isInstrumental": false,
+    "rationale": "Switchlight is LUMINA's first broader pop single: a 65-second chrome house-pop track with a clear 15-second title hook for later Seedance video work."
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Do not generate video from this config."
+    }
+  ]
+}

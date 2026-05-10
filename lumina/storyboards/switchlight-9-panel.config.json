@@ -1,0 +1,118 @@
+{
+  "name": "switchlight-9-panel-storyboard",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frame imageRefs from the LUMINA personality registry.",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "personalitiesPath": "experiments/003-kpop-idol-beauty-ugc/personalities.json",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-01-rae-mirror-intro",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 1 for the lyric 'Back door, heartbeat, mirror light': Rae is centered in a premium backstage dressing-room mirror close-up, calm polished leader energy, vertical pearl light bars reflected around her face, black marble counter below, chrome garment rails behind, and the other four members faintly visible as soft reflections in mirror depth. Preserve every member's face, hair identity, skin tone, body proportions, and archetype exactly; only change wardrobe, setting, pose, lighting, and camera framing. Coordinated pearl/chrome/black comeback wardrobe with Rae's distinct elegant silhouette. Vertical 9:16 cinematic framing, shallow depth of field, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness."
+      },
+      {
+        "name": "panel-02-jia-jacket-switch",
+        "type": "storyboard",
+        "imageRefs": ["jia"],
+        "prompt": "Use the provided Jia reference image as the exact identity anchor. Create Panel 2 for the lyric 'Chrome on my sleeve like a satellite': Jia adjusts a cropped chrome-black jacket in a narrow chrome hallway, sharp girl-crush expression, chin slightly angled, pearl light strips switching on behind her, reflective black floor catching her silhouette, chrome wall seams leading toward the stage doorway. Preserve Jia's face, hair identity, skin tone, body proportions, and bold archetype exactly; only change wardrobe, setting, pose, lighting, and shot composition. Vertical 9:16 premium comeback MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness."
+      },
+      {
+        "name": "panel-03-group-backstage-ignition",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 3 for the lyric 'One breath, then the whole room shines': the premium dressing room shifts from dim to bright as pearl lights switch on in sequence, chrome rails and mirror edges bloom with light, and all five members turn toward a glowing stage doorway at frame right. Rae remains calm center, Jia sharpens her jacket, Sena catches soft light, Nari rises from a rehearsal stretch, and Yumi turns with warm anticipation. Preserve each member's face, hair identity, skin tone, body proportions, and archetype exactly. Coordinated pearl/chrome/black wardrobe with distinct silhouettes, vertical 9:16 cinematic MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness."
+      },
+      {
+        "name": "panel-04-yumi-sena-hallway-glow",
+        "type": "storyboard",
+        "imageRefs": ["yumi", "sena"],
+        "prompt": "Use the provided Yumi and Sena reference images as exact identity anchors. Create Panel 4 for the lyrics 'I was quiet in the hallway glow / Counting every second till the speakers blow': Yumi and Sena move through a deep chrome hallway with diagonal pearl lights pulsing gently, Yumi turns back with warm fan-cam energy, Sena sings softly near a pearl light bloom, and the hallway perspective leads toward the stage. Preserve Yumi and Sena's faces, hair identities, skin tones, body proportions, and archetypes exactly; only change wardrobe, setting, pose, lighting, and framing. Coordinated pearl/chrome/black wardrobe, reflective black floor, vertical 9:16 cinematic tracking-shot keyframe, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness."
+      },
+      {
+        "name": "panel-05-sena-vanity-prehook",
+        "type": "storyboard",
+        "imageRefs": ["sena"],
+        "prompt": "Use the provided Sena reference image as the exact identity anchor. Create Panel 5 for the lyric 'See the future in the vanity mirror': Sena in an emotional pre-hook close-up, framed by a curved pearl light panel and a vanity reflection, hands lifting gently as the light rises, sincere velvet vocalist expression, dark stage threshold visible behind her. Preserve Sena's face, hair identity, skin tone, body proportions, and soft vocalist archetype exactly. Pearl satin and black stage tailoring with small chrome details, shallow depth of field, vertical 9:16 premium comeback MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness."
+      },
+      {
+        "name": "panel-06-nari-switch-the-light",
+        "type": "storyboard",
+        "imageRefs": ["nari", "rae", "jia", "sena", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 6 for the lyric 'Tell the whole room, switch the light': all five members step from the chrome hallway onto the performance threshold, pearl panels ignite behind them in a clean sequence, Nari cues the first dance count in the foreground, Rae holds center alignment, Jia sharpens the edge, Sena stays luminous, and Yumi connects to the camera. Preserve each member's face, hair identity, skin tone, body proportions, and archetype exactly. Set geometry: backstage floor tape lines, chrome-lit doorway, pearl light panels visible ahead, reflective black floor. Vertical 9:16 cinematic MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness, no copied choreography."
+      },
+      {
+        "name": "panel-07-hook-hand-gesture",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 7 for the lyrics 'Switchlight, switchlight / Turn me on when the beat hits right': full group hook formation on a specific chrome stage, Rae centered, Jia and Nari as sharp movement anchors, Sena and Yumi framing the formation, all five performing an original light-switch hand gesture near shoulder height. Set geometry: three vertical pearl light panels behind them brightening in sequence, chrome side arches, glossy black-chrome reflective floor, black negative space above for contrast. Preserve each member's face, hair identity, skin tone, body proportions, and archetype exactly. Vertical 9:16 premium comeback MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness, no copied choreography."
+      },
+      {
+        "name": "panel-08-step-pose-shine-hit",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 8 for the lyric 'Step, pose, shine, don't blink': low-angle synchronized performance hit after one forward step, five individual pearl light columns mapped to five members, chrome floor reflecting their legs and stage silhouettes. Rae holds polished center stillness, Jia and Nari show sharper movement tension, Sena has a luminous vocal face, and Yumi gives fan-facing warmth. Preserve each member's face, hair identity, skin tone, body proportions, and archetype exactly. Coordinated pearl/chrome/black wardrobe with distinct silhouettes, vertical 9:16 premium MV keyframe, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness, no copied choreography."
+      },
+      {
+        "name": "panel-09-final-switchlight-pose",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five provided LUMINA member reference images as exact identity anchors for Rae, Jia, Sena, Nari, and Yumi. Create Panel 9 for the lyric 'Meet us where the lights go bright': final Switchlight title moment with no text, all five members holding a confident final group pose under fully activated pearl/chrome lights, chrome arches framing them like an opened doorway, reflective black-chrome floor glowing underneath, clean final camera lock on the group. Preserve each member's face, hair identity, skin tone, body proportions, and archetype exactly. Rae calm center, Jia confident angled stare, Sena soft and luminous, Nari athletic and grounded, Yumi warm and bright. Vertical 9:16 premium comeback MV framing, no Lumora, no product props, no beauty claims, no readable logos, no captions, no real celebrity likeness, no copied choreography."
+      }
+    ]
+  },
+  "storyboard": {
+    "title": "Switchlight 9-Panel Comeback MV Storyboard",
+    "imageRefs": [
+      "panel-01-rae-mirror-intro",
+      "panel-02-jia-jacket-switch",
+      "panel-03-group-backstage-ignition",
+      "panel-04-yumi-sena-hallway-glow",
+      "panel-05-sena-vanity-prehook",
+      "panel-06-nari-switch-the-light",
+      "panel-07-hook-hand-gesture",
+      "panel-08-step-pose-shine-hit",
+      "panel-09-final-switchlight-pose"
+    ],
+    "audioRef": "music",
+    "prompt": "Follow the storyboard strictly in exact order from Panel 1 to Panel 9. Do not skip, merge, or rearrange scenes. Keep the SAME five LUMINA member identities across the entire film: Rae, Jia, Sena, Nari, and Yumi. No face changes, no hairstyle changes, no body proportion inconsistencies. Preserve each member's archetype, wardrobe family, and visual role.\n\nUse the provided reference images as strict identity and visual-continuity anchors. Preserve Rae as the calm polished center, Jia as the sharp girl-crush performer, Sena as the soft velvet vocalist, Nari as the athletic main dancer, and Yumi as the warm fan-facing idol. Maintain one coordinated pearl/chrome/black comeback wardrobe system with distinct silhouettes for each member. No Lumora, no product props, no beauty or skincare claims, no UGC framing, no readable logos, no captions, no real idol names, no real celebrity likenesses, and no copied choreography.\n\nMaintain a premium comeback MV look across the entire film: backstage dressing room into chrome hallway into activated performance stage. Lighting should progress naturally from dim mirror light to pearl panels switching on to a fully bright final stage. Keep pearl pink and chrome highlights consistent, with black stage contrast and reflective black-chrome flooring. Camera movement should feel like real music-video rigs: stabilized tracking, controlled push-ins, clean cuts, occasional close-ups, no random AI drifting, no excessive jitter, no chaotic orbiting, and no artificial morphing. Hair, wardrobe fabric, reflections, and body movement should react naturally to motion and stage lighting.\n\nPanel 1: \"Back door, heartbeat, mirror light\" - Rae starts in a premium backstage mirror setup. Vertical pearl light bars reflect around her face, black marble counter and chrome garment rails define the room, and the other four members are faintly visible in mirror depth. Rae holds calm center energy with subtle breathing and a direct pre-stage stare.\n\nPanel 2: \"Chrome on my sleeve like a satellite\" - Jia adjusts a cropped chrome-black jacket in the foreground while Nari stretches, Sena and Yumi prepare behind her, and Rae remains centered in reflection. The camera tracks across chrome rails and pearl light bars, emphasizing group readiness without product props.\n\nPanel 3: \"One breath, then the whole room shines\" - The dressing-room lights switch on in sequence. Pearl glow blooms across chrome rails and mirror edges, and all five members turn toward the stage doorway at frame right. The scene should feel like the exact moment backstage nerves become performance power.\n\nPanel 4: \"I was quiet in the hallway glow / Counting every second till the speakers blow\" - Yumi and Sena move through a deep chrome hallway with diagonal pearl lights. Yumi turns back with warm fan-cam energy while Sena carries a soft vocal expression near a light bloom. Keep Rae, Jia, and Nari present as moving silhouettes deeper in the hallway.\n\nPanel 5: \"See the future in the vanity mirror\" - Sena gets the emotional pre-hook close-up, framed by a curved pearl light panel and a vanity reflection. Her hands lift gently as the light rises, with a dark stage threshold visible behind her. Preserve shallow depth of field and sincere vocalist energy.\n\nPanel 6: \"Tell the whole room, switch the light\" - All five members step from the hallway onto the performance threshold. Pearl panels ignite behind them in a clean sequence. Nari cues the first dance count, Rae holds center alignment, Jia sharpens the edge, Sena stays luminous, and Yumi connects to the camera.\n\nPanel 7: \"Switchlight, switchlight / Turn me on when the beat hits right\" - Full group hook formation on a specific chrome stage. Rae is centered, Jia and Nari are sharp movement anchors, Sena and Yumi frame the formation, and all five perform an original light-switch hand gesture near shoulder height. Three vertical pearl panels brighten in sequence behind them.\n\nPanel 8: \"Step, pose, shine, don't blink\" - Low-angle synchronized performance hit. The group lands one clean original pose after a forward step, with five individual pearl light columns mapped to five members and chrome floor reflections under their feet. The move should feel precise, commercial, and replayable.\n\nPanel 9: \"Meet us where the lights go bright\" - Final Switchlight title moment with no text. All five hold a confident final group pose under fully activated pearl/chrome lights, chrome arches framing them like an opened doorway, reflective floor glow underneath, and a clean final camera lock on the group."
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true,
+    "seed": 3501
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use image-pack first, then referenceVideo after visual review."
+    }
+  ]
+}

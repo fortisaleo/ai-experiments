@@ -1,0 +1,58 @@
+{
+  "name": "switchlight-3-beat-performance-hook",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frames for the Nano Banana 2 3-beat director storyboard.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this storyboard config.",
+    "lyrics": "Accepted Switchlight hook audio exists in outputs/lumina-switchlight/seedance-ab-audio/switchlight-hook-start-15s.mp3.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-3-beat-performance-hook-refs.json",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "beat-01-mirror-charge",
+        "type": "storyboard",
+        "imageRefs": ["mirror-ref", "rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Create Beat 1 of a fresh 3-beat horizontal 16:9 hand-drawn director storyboard for fictional K-pop group LUMINA. Use the mirror reference for location vocabulary and the five member portraits as identity anchors. Title: '01 MIRROR CHARGE / 0.0-3.5s'. Rae anchors the backstage mirror, calm but charged; Jia, Sena, Nari, and Yumi appear through mirror reflection and dressing-room depth. One shared breath begins the transformation as dim pearl bulbs start glowing. Add dense production annotations: red breath/turn body arrows, blue slow push-in camera arrow, orange pearl bulbs warming up, green mirror-depth composition note, purple private-nerves-to-charge emotion note. Pencil and marker director-board style, not a photoreal final frame. No Lumora, product props, beauty claims, readable logos, real celebrity likenesses, copied choreography, or scene captions inside the fictional set."
+      },
+      {
+        "name": "beat-02-hallway-switch",
+        "type": "storyboard",
+        "imageRefs": ["hallway-ref", "nari", "rae", "jia", "sena", "yumi"],
+        "prompt": "Create Beat 2 of a fresh 3-beat horizontal 16:9 hand-drawn director storyboard for fictional K-pop group LUMINA. Use the hallway/threshold reference for set geometry and the member portraits as identity anchors. Title: '02 HALLWAY SWITCH / 3.5-7.5s'. The group advances through a chrome hallway toward stage. Nari leads the count and cues the original switchlight gesture: hand rises near shoulder, wrist flicks downward like a light switch. Pearl lights ignite behind the group in sequence. Rae stays center alignment, Jia sharp edge, Sena luminous, Yumi warm connection. Add red walking and switch-flick arrows, blue tracking-back camera arrow, orange sequential hallway light ignition, green vanishing-point corridor framing, purple ignition/story-pivot note. Pencil and marker director-board style, not photoreal. No Lumora, product props, beauty claims, readable logos, real celebrity likenesses, copied choreography, or scene captions inside the fictional set."
+      },
+      {
+        "name": "beat-03-stage-hook-final-command",
+        "type": "storyboard",
+        "imageRefs": ["stage-ref", "rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Create Beat 3 of a fresh 3-beat horizontal 16:9 hand-drawn director storyboard for fictional K-pop group LUMINA. Use the stage reference for chrome arch, pearl light field, reflective floor, and final command energy. Title: '03 STAGE HOOK / FINAL COMMAND / 7.5-15.0s'. Full group performance on chrome stage. Rae center, Jia and Nari drive sharp hook energy, Sena and Yumi frame the formation. The group repeats the original switchlight gesture near shoulder height, pearl panels ignite on the flick, then all five take one forward step into the 'Step, pose, shine' hit and hold the final hero pose for the last second. Add red gesture/step/pose arrows, blue low-angle push then camera-lock note, orange five pearl columns flare, green symmetrical final formation, purple command-not-chaos final emotion note. Pencil and marker director-board style, not photoreal. No Lumora, product props, beauty claims, readable logos, real celebrity likenesses, copied choreography, or scene captions inside the fictional set."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This config generates storyboard panels only."
+    }
+  ]
+}

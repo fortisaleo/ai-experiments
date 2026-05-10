@@ -1,0 +1,24 @@
+{
+  "groupName": "LUMINA",
+  "runId": "2026-05-09T03-02-21-059Z-switchlight-9-panel-missing-panels-retry",
+  "sourceManifest": "outputs/lumina-switchlight/2026-05-09T03-02-21-059Z-switchlight-9-panel-missing-panels-retry/manifest.json",
+  "brandWorld": {
+    "palette": "pearl, chrome, black, pearl pink light accents",
+    "safety": "Fictional original LUMINA members only. No real celebrity likenesses, readable logos, captions, product props, beauty claims, or copied choreography."
+  },
+  "members": [
+    {
+      "id": "panel-06-group-threshold",
+      "displayName": "Panel 6 Group Threshold",
+      "sourceCandidate": "panel-06-nari-switch-the-light-retry",
+      "archetype": "Accepted group continuity anchor",
+      "role": "Use this as the single visual anchor for the same five LUMINA members, wardrobe family, chrome hallway threshold, pearl panel lighting, and reflective black floor.",
+      "personality": "Not a new character; preserve the visible group identity, set, wardrobe, and lighting continuity from this accepted frame.",
+      "voice": "N/A",
+      "bestUse": "Final hook-stage continuity anchor.",
+      "localPath": "outputs/lumina-switchlight/2026-05-09T03-02-21-059Z-switchlight-9-panel-missing-panels-retry/image-pack/02-storyboard-panel-06-nari-switch-the-light-retry.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a9976d7/QmMruG3c0DZcDtcOZmzKe_54CInOvR.png"
+    }
+  ]
+}
+

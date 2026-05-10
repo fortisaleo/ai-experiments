@@ -1,0 +1,46 @@
+{
+  "name": "switchlight-nano-banana-2-wardrobe-lock-lineup",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this storyboard config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-12-panel-nano-photoreal-refs.json",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "switchlight-wardrobe-lock-lineup",
+        "type": "lookbook",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use the five LUMINA portraits as exact fictional identity anchors. Create a clean premium photoreal 16:9 wardrobe continuity lineup reference for the Switchlight music video, full body, front facing, even studio lighting, no stage performance, no text. Keep each member's face, hair identity, body proportions, and archetype recognizable. Wardrobe must be coordinated pearl/chrome/black with baby-pink accents and unique silhouettes that can remain consistent across backstage, hallway, and stage scenes: Rae center in pearl satin structured mini-dress with slim chrome waist belt and black ankle boots; Jia in cropped chrome-black moto jacket, black fitted performance shorts, silver high boots; Sena in soft pearl-pink draped mini-dress with chrome shoulder detail and delicate black heels; Nari in black performance crop top with chrome harness lines, pearl-white pleated mini skirt, black knee boots; Yumi in pearl-pink cropped jacket over white performance top, pale pink wide-leg performance trousers, white platform sneakers. No logos, no captions, no product props, no beauty claims, no real idol likenesses, no copied choreography."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

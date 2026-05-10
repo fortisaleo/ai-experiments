@@ -1,0 +1,23 @@
+{
+  "groupName": "LUMINA",
+  "runId": "2026-05-09T17-35-42-568Z-switchlight-9-panel-stage-panels-retry",
+  "sourceManifest": "outputs/lumina-switchlight/2026-05-09T17-35-42-568Z-switchlight-9-panel-stage-panels-retry/manifest.json",
+  "brandWorld": {
+    "palette": "pearl, chrome, black, pearl pink light accents",
+    "safety": "Fictional original LUMINA members only. No real celebrity likenesses, readable logos, captions, product props, beauty claims, or copied choreography."
+  },
+  "members": [
+    {
+      "id": "panel-07-hook",
+      "displayName": "Panel 7 Hook Formation",
+      "sourceCandidate": "panel-07-hook-hand-gesture-stage-retry",
+      "archetype": "Accepted hook-stage continuity anchor",
+      "role": "Use as the single visual anchor for the same five LUMINA members, stage wardrobe, pearl/chrome lights, reflective floor, and hook-stage blocking.",
+      "personality": "Not a new character; preserve the visible group identity, set, wardrobe, and lighting continuity from this accepted frame.",
+      "voice": "N/A",
+      "bestUse": "Final stage continuity anchor.",
+      "localPath": "outputs/lumina-switchlight/2026-05-09T17-35-42-568Z-switchlight-9-panel-stage-panels-retry/image-pack/01-storyboard-panel-07-hook-hand-gesture-stage-retry.png",
+      "imageUrl": "https://v3b.fal.media/files/b/0a998b3e/Tztvle7lbKTZdEouJYijz_YEeDeGBw.png"
+    }
+  ]
+}

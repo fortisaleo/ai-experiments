@@ -1,0 +1,112 @@
+{
+  "name": "switchlight-12-panel-nano-banana-2-director-board",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frames for the Nano Banana 2 12-panel director storyboard.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this storyboard config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "personalitiesPath": "experiments/003-kpop-idol-beauty-ugc/personalities.json",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-01-mirror-before-the-switch",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Make a horizontal 16:9 hand-drawn director storyboard panel for a fictional K-pop group music video. Use the reference images only to preserve the five LUMINA member identities. Panel 1: 'Back door, heartbeat, mirror light.' Wide dressing-room establishing shot. Rae is the calm center at the mirror; Jia, Sena, Nari, and Yumi appear as reflections and background figures. Add production-board annotations like the example: red body movement arrows, blue camera slow push, orange dim pearl bulb lighting, green mirror-depth framing, purple contained-nerves emotion note. Pencil sketch with selective colored notes, not photoreal. No real celebrity likeness, copied choreography, logos, captions in the scene, products, or beauty ad language."
+      },
+      {
+        "name": "panel-02-chrome-sleeve-first-spark",
+        "type": "storyboard",
+        "imageRefs": ["jia", "rae", "nari"],
+        "prompt": "Make Panel 2 as a horizontal 16:9 pencil-and-marker director storyboard. Keep Jia, Rae, and Nari recognizable from the references. Lyric: 'Chrome on my sleeve like a satellite.' Jia snaps or adjusts a chrome jacket in a medium shot. Rae stays visible in mirror depth; Nari warms up behind. Add red jacket-motion arrows, blue handheld drift note, orange chrome side-light note, green foreground/mirror/background composition note, purple attitude-begins note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-03-one-breath-room-shines",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Make Panel 3 as a horizontal 16:9 hand-drawn director storyboard. Preserve all five fictional LUMINA members from the references. Lyric: 'One breath, then the whole room shines.' All five pause in the dressing room and turn toward a glowing doorway as pearl bulbs switch on in sequence. Add red group-pivot arrows, blue camera-widens note, orange sequential light arrows, green doorway-path composition note, purple readiness emotion note. Pencil sketch production-board style with dense annotations. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-04-stepping-through-the-line",
+        "type": "storyboard",
+        "imageRefs": ["rae", "yumi", "nari"],
+        "prompt": "Make Panel 4 as a horizontal 16:9 director storyboard sketch. Keep Rae, Yumi, and Nari recognizable. Lyric: 'LUMINA stepping through the line.' The group crosses from dressing room into chrome hallway. Rae leads center, Yumi glances back, Nari marks the first count. Add red walking/glance/count arrows, blue track-back camera note, orange light-path note, green dressing-room-left/hallway-right composition note, purple becoming-stage-selves note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-05-hallway-glow",
+        "type": "storyboard",
+        "imageRefs": ["yumi", "sena"],
+        "prompt": "Make Panel 5 as a horizontal 16:9 pencil director storyboard. Keep Yumi and Sena recognizable from references. Lyric: 'I was quiet in the hallway glow.' Yumi and Sena move through a deep chrome corridor with diagonal pearl lights; Yumi turns warmly toward camera while Sena holds a soft vocal expression. Add red body movement arrows, blue track-back camera arrow, orange diagonal light-strip notes, green long-perspective framing note, purple private-vulnerability note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-06-speakers-blow-color-rise",
+        "type": "storyboard",
+        "imageRefs": ["sena", "yumi"],
+        "prompt": "Make Panel 6 as a horizontal 16:9 hand-drawn director storyboard close-up. Keep Sena and Yumi recognizable. Lyric: 'Counting every second till the speakers blow / Sena sings it soft, let the color rise.' Sena in close vocal focus near a pearl-pink bloom; Yumi crosses behind in soft motion. Add red hair/fabric motion arrows, blue close handheld float note, orange pink-light bloom note, green foreground/depth note, purple confidence-surfaces vocal note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-07-vanity-future",
+        "type": "storyboard",
+        "imageRefs": ["sena", "rae"],
+        "prompt": "Make Panel 7 as a horizontal 16:9 stylized mirror storyboard sketch. Keep Sena and Rae recognizable. Lyric: 'See the future in the vanity mirror.' Sena touches a mirror/reflection near the stage threshold; Rae appears centered behind her as the future stage alignment. Add red hand-to-mirror arrow, blue subtle push toward reflection note, orange light-travel arrow from mirror to stage, green reflection-symmetry note, purple self-recognition note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-08-switch-the-light",
+        "type": "storyboard",
+        "imageRefs": ["nari", "rae", "jia", "sena", "yumi"],
+        "prompt": "Make Panel 8 as a horizontal 16:9 low-angle director storyboard. Preserve all five LUMINA members from references. Lyric: 'Tell the whole room, switch the light.' Nari cues the first count at the threshold with one lifted hand; the group locks into stage lanes behind her; pearl panels switch on downstage. Add red count/lane-lock arrows, blue low-angle tilt-up camera note, orange panels-ignite note, green threshold-to-stage composition note, purple story-pivot note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-09-hook-formation",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Make Panel 9 as a horizontal 16:9 full-stage director storyboard. Preserve all five fictional LUMINA members from references. Lyric: 'Switchlight, switchlight / Turn me on when the beat hits right.' First full stage reveal: Rae center, Jia and Nari sharp anchors, Sena and Yumi framing. Original light-switch hand gesture near shoulder height. Add red gesture arrows, blue stabilized push or crane note, orange pearl panels brighten note, green diagonal formation note, purple title-hook-locks-in note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-10-step-pose-shine",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Make Panel 10 as a horizontal 16:9 low-angle performance-hit storyboard. Preserve all five LUMINA members from references. Lyric: 'Step, pose, shine, don't blink.' One forward step lands into a precise group pose. Five pearl light columns map to five members and reflect on the black-chrome floor. Add red step-and-pose arrows, blue locked low-angle camera note, orange light-column flare note, green five-member-spacing note, purple commercial-timing note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-11-camera-catch-rap-charge",
+        "type": "storyboard",
+        "imageRefs": ["jia", "nari"],
+        "prompt": "Make Panel 11 as a horizontal 16:9 kinetic rap storyboard. Keep Jia and Nari recognizable. Lyric: 'Click, click, camera, catch my angle / Nari on the count, Jia on the flame.' Jia cuts toward the lens with sharp camera-aware attitude; Nari crosses behind with a count gesture. Add red Jia-cut and Nari-cross arrows, blue whip-pan/orbit note, orange chrome rim-light note, green foreground/depth note, purple rap-charge note. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      },
+      {
+        "name": "panel-12-where-the-lights-go-bright",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Make Panel 12 as a horizontal 16:9 final wide hero storyboard. Preserve all five fictional LUMINA members from references. Lyric: 'Meet us where the lights go bright.' Full group under chrome arch, stage fully switched on, Rae calm center, everyone locked into final stage identity. Add red held-pose arrows, blue camera-settles/no-drift note, orange hard spotlight plus pearl field note, green hero-symmetry note, purple command-not-chaos note. Pencil-and-marker director board with dense annotations. No real celebrity likeness, copied choreography, logos, scene captions, products, or beauty ad language."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This config generates storyboard panels only."
+    }
+  ]
+}

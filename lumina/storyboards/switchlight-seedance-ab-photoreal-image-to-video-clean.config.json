@@ -1,0 +1,30 @@
+{
+  "name": "switchlight-seedance-ab-photoreal-image-to-video-clean",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "photoreal clean 12-panel storyboard source",
+    "imageUrl": "https://v3b.fal.media/files/b/0a998ff6/HjvMMPcaaFWtzVyaJX77j_1778360227089.png",
+    "localPath": "/Users/aneurycasado/Development/fortisaleo/ai-experiments/outputs/lumina-switchlight/2026-05-09T20-23-36-679Z-switchlight-12-panel-nano-banana-2-photoreal-wardrobe-locked/switchlight-nano-banana-2-photoreal-clean-12-panel-source.png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": false
+  },
+  "clips": [
+    {
+      "name": "switchlight-ab-photoreal-clean",
+      "seed": 12012,
+      "prompt": "Use this clean 12-panel photoreal storyboard grid as the source for a 15-second LUMINA Switchlight music video. Read panels left to right, top to bottom. Animate each panel as a quick cinematic snapshot in order: backstage mirror nerves, chrome jacket spark, room lights switch on, hallway exit, Yumi and Sena hallway glow, Sena vocal close-up, vanity mirror future, Nari switch cue, hook formation, step-pose-shine hit, Jia and Nari rap charge, final group hero under chrome arch. Keep the same five fictional members and the same pearl/chrome/black wardrobe with baby-pink accents throughout. Do not duplicate members, change outfits, change hairstyles, add text, add logos, or add products. Use premium photoreal music-video motion: quick cuts, match cuts, mirror cuts, hallway tracking, low-angle performance hits, clean orbit motion, realistic hair and fabric movement, floor contact, and natural reflections. Final group hero holds for the last 1 second. No annotations, no captions, no watermark, no real celebrity likenesses, no copied choreography, no anime, no sketch look, no plastic CGI, no melted bodies, no floating feet."
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "switchlight-12-panel-nano-banana-2-photoreal-quality-retry",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this storyboard config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "baseImageUpscale": {
+    "model": "fal-ai/topaz/upscale/image",
+    "topazModel": "Standard V2",
+    "upscaleFactor": 2,
+    "outputFormat": "png",
+    "subjectDetection": "All",
+    "faceEnhancement": true,
+    "faceEnhancementStrength": 0.8
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-12-panel-nano-photoreal-refs.json",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-06-speakers-blow-color-rise-clean",
+        "type": "storyboard",
+        "imageRefs": ["sena", "yumi"],
+        "prompt": "Use Sena and Yumi portraits as exact fictional LUMINA identity anchors. Create a premium photoreal horizontal 16:9 K-pop MV still, not a drawing and not a storyboard page. Lyric moment: 'Counting every second till the speakers blow / Sena sings it soft.' Sena is in a tight cinematic vocal close-up near a pearl-pink light bloom at the chrome stage threshold, natural skin texture, real camera depth of field, Yumi crosses softly behind in motion blur, hair and fabric moving from stage airflow, confidence beginning to surface. Wardrobe remains pearl/chrome/black with distinct silhouettes. Absolutely no annotations, no handwriting, no arrows, no captions, no text, no logos, no product props, no beauty-ad language, no real celebrity likeness."
+      },
+      {
+        "name": "panel-09-hook-formation-clean",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use all five LUMINA portraits as exact fictional identity anchors. Create a premium photoreal horizontal 16:9 K-pop MV still, not illustration, not anime, not CG concept art. Lyric moment: 'Switchlight, switchlight / Turn me on.' First full stage reveal in the same pearl/chrome venue: Rae center, Jia and Nari sharp side anchors, Sena and Yumi framing, all five in coordinated pearl/chrome/black wardrobe with unique silhouettes. Specific stage geometry: reflective black-chrome floor, three vertical pearl light panels behind them brightening in sequence, chrome side walls and visible stage threshold behind. The group performs an original light-switch hand gesture near shoulder height, realistic bodies and fabric, real lens compression, high-budget MV lighting. No annotations, no text, no logos, no product props, no real idol likenesses, no copied choreography."
+      },
+      {
+        "name": "panel-10-step-pose-shine-clean",
+        "type": "storyboard",
+        "imageRefs": ["rae", "jia", "sena", "nari", "yumi"],
+        "prompt": "Use all five LUMINA portraits as exact fictional identity anchors. Create a premium photoreal horizontal 16:9 K-pop MV still, not a drawing, not anime, not plastic CGI. Lyric moment: 'Step, pose, shine, don't blink.' Low-angle real-camera performance hit on the same stage: the five members have just stepped forward into a clean synchronized original pose, five individual pearl light columns flare behind them, reflective black-chrome floor catches full-body reflections, Rae polished center, Jia and Nari sharper movement energy, Sena luminous, Yumi bright. Maintain natural skin texture, realistic hair, real fabric, physical stage lighting, commercial MV polish. No annotations, no text, no logos, no product props, no real celebrity likenesses, no copied choreography."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This config regenerates quality misses for the Nano photoreal storyboard."
+    }
+  ]
+}

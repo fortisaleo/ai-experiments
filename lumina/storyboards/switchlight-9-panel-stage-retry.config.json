@@ -1,0 +1,58 @@
+{
+  "name": "switchlight-9-panel-stage-panels-retry",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frame imageRefs from the stage retry registry.",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this retry config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-9-panel-stage-retry-personalities.json",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-07-hook-hand-gesture-stage-retry",
+        "type": "storyboard",
+        "imageRefs": ["panel-06-group-threshold"],
+        "prompt": "Use the provided image as the continuity anchor. Create the next Switchlight MV keyframe with the same five fictional LUMINA members on the same pearl/chrome stage. Keep the same wardrobe family, lighting, reflective black floor, and member identities. Rae is center; the group forms a clean diagonal hook formation. Hands are lifted near shoulder height for a simple original switch-light gesture. Vertical 9:16 music-video still. No text, logos, product props, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-08-step-pose-shine-hit-stage-retry",
+        "type": "storyboard",
+        "imageRefs": ["panel-06-group-threshold"],
+        "prompt": "Use the provided image as the continuity anchor. Create the next Switchlight MV keyframe with the same five fictional LUMINA members on the same stage. The group lands a clean synchronized pose after one forward step. Rae remains center; Jia and Nari look sharper and more athletic; Sena and Yumi frame the sides. Five pearl light columns glow behind them and reflect on the black chrome floor. Vertical 9:16 music-video still. No text, logos, product props, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-09-final-switchlight-pose-stage-retry",
+        "type": "storyboard",
+        "imageRefs": ["panel-06-group-threshold"],
+        "prompt": "Use the provided image as the continuity anchor. Create the final Switchlight MV keyframe with the same five fictional LUMINA members holding a confident final group pose on the same pearl/chrome stage. Rae is calm center; Jia angled and confident; Sena luminous; Nari grounded; Yumi warm. Pearl lights are fully on, chrome arches frame the group, and the reflective black floor glows. Vertical 9:16 music-video still. No text, logos, product props, real celebrity likeness, or copied choreography."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This retry config generates final stage storyboard panels only."
+    }
+  ]
+}

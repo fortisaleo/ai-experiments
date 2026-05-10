@@ -93,6 +93,7 @@ const experimentSchema = z.object({
   }).optional(),
   imagePack: z.object({
     model: z.string().min(1).default("openai/gpt-image-2"),
+    personalitiesPath: z.string().min(1).optional(),
     imageSize: imageSizeSchema.default("portrait_16_9"),
     quality: z.enum(["auto", "low", "medium", "high"]).default("high"),
     outputFormat: z.enum(["jpeg", "png", "webp"]).default("png"),
@@ -100,6 +101,7 @@ const experimentSchema = z.object({
       z.object({
         name: z.string().min(1),
         type: z.enum(["storyboard", "lookbook"]),
+        imageRefs: z.array(z.string().min(1)).optional(),
         prompt: z.string().min(1)
       })
     ).min(1)
@@ -108,6 +110,8 @@ const experimentSchema = z.object({
     title: z.string().min(1),
     prompt: z.string().min(1),
     imageRefs: z.array(z.string().min(1)).default([]),
+    imageUrls: z.array(z.string().url()).default([]),
+    audioUrl: z.string().url().optional(),
     audioRef: z.string().min(1).default("music")
   }).optional(),
   referenceVideo: z.object({
@@ -172,7 +176,7 @@ const experimentSchema = z.object({
 type Experiment = z.infer<typeof experimentSchema>;
 
 type CliOptions = {
-  command: "generate" | "image" | "videos" | "candidates" | "upscale" | "music" | "image-pack" | "video" | "assemble" | "members";
+  command: "generate" | "image" | "videos" | "candidates" | "upscale" | "upscale-image-pack" | "music" | "image-pack" | "video" | "assemble" | "members";
   configPath: string;
   dryRun: boolean;
   imageUrl?: string;
@@ -246,6 +250,11 @@ type Manifest = {
     status: "succeeded" | "failed" | "dry-run";
     imageUrl?: string;
     localPath?: string;
+    upscaledImageUrl?: string;
+    upscaledLocalPath?: string;
+    upscaleStatus?: "succeeded" | "failed" | "dry-run";
+    upscaleError?: string;
+    upscaleProviderResult?: unknown;
     providerResult?: unknown;
     error?: string;
   }>;
@@ -348,6 +357,7 @@ function parseArgs(argv: string[]): CliOptions {
     || args[0] === "generate"
     || args[0] === "candidates"
     || args[0] === "upscale"
+    || args[0] === "upscale-image-pack"
     || args[0] === "music"
     || args[0] === "image-pack"
     || args[0] === "video"
@@ -514,6 +524,41 @@ function getAudioUrl(result: unknown): string {
     throw new Error("Audio generation completed but no audio URL was returned.");
   }
   return url;
+}
+
+function toAspectRatio(imageSize: NonNullable<Experiment["imagePack"]>["imageSize"]): string {
+  if (imageSize === "portrait_16_9") return "9:16";
+  if (imageSize === "landscape_16_9") return "16:9";
+  if (imageSize === "square") return "1:1";
+  return "auto";
+}
+
+function buildImagePackInput(experiment: Experiment, prompt: string, imageUrls: string[]): Record<string, unknown> {
+  if (!experiment.imagePack) {
+    throw new Error("This config does not define imagePack.");
+  }
+
+  if (experiment.imagePack.model.includes("nano-banana-2")) {
+    return {
+      prompt,
+      image_urls: imageUrls,
+      aspect_ratio: toAspectRatio(experiment.imagePack.imageSize),
+      output_format: experiment.imagePack.outputFormat,
+      num_images: 1,
+      resolution: "1K",
+      limit_generations: true,
+      enable_web_search: false
+    };
+  }
+
+  return {
+    prompt,
+    image_urls: imageUrls,
+    image_size: experiment.imagePack.imageSize,
+    quality: experiment.imagePack.quality,
+    num_images: 1,
+    output_format: experiment.imagePack.outputFormat
+  };
 }
 
 async function downloadFile(url: string, destination: string): Promise<void> {
@@ -776,9 +821,16 @@ async function generateImagePack(experiment: Experiment, manifest: Manifest, out
     throw new Error("This config does not define imagePack.");
   }
 
+  const registry = experiment.imagePack.personalitiesPath
+    ? await loadPersonalityRegistry(experiment.imagePack.personalitiesPath)
+    : undefined;
   const selectedImageUrl = experiment.selectedIdol?.imageUrl ?? manifest.selectedIdol?.imageUrl;
-  if (!selectedImageUrl && !dryRun) {
+  const hasFrameImageRefs = experiment.imagePack.frames.some((frame) => frame.imageRefs && frame.imageRefs.length > 0);
+  if (!selectedImageUrl && !registry && !dryRun) {
     throw new Error("No selectedIdol.imageUrl available. Generate candidates, choose one, then add selectedIdol before creating the image pack.");
+  }
+  if (hasFrameImageRefs && !registry) {
+    throw new Error("imagePack frame imageRefs require imagePack.personalitiesPath.");
   }
 
   const imagePackDir = path.join(outputDir, "image-pack");
@@ -786,14 +838,19 @@ async function generateImagePack(experiment: Experiment, manifest: Manifest, out
   manifest.imagePack = [];
 
   for (const [index, frame] of experiment.imagePack.frames.entries()) {
-    const input = {
-      prompt: frame.prompt,
-      image_urls: selectedImageUrl ? [selectedImageUrl] : ["dry-run://selected-idol.png"],
-      image_size: experiment.imagePack.imageSize,
-      quality: experiment.imagePack.quality,
-      num_images: 1,
-      output_format: experiment.imagePack.outputFormat
-    };
+    const referencedImageUrls = frame.imageRefs?.map((memberId) => {
+      const member = registry?.members.find((candidate) => candidate.id === memberId);
+      if (!member) {
+        throw new Error(`No personality found for imagePack frame "${frame.name}" imageRef "${memberId}".`);
+      }
+      return member.imageUrl;
+    });
+    const imageUrls = referencedImageUrls && referencedImageUrls.length > 0
+      ? referencedImageUrls
+      : selectedImageUrl
+        ? [selectedImageUrl]
+        : ["dry-run://selected-idol.png"];
+    const input = buildImagePackInput(experiment, frame.prompt, imageUrls);
     const localPath = path.join(
       imagePackDir,
       `${String(index + 1).padStart(2, "0")}-${frame.type}-${frame.name}.${experiment.imagePack.outputFormat}`
@@ -912,6 +969,67 @@ async function upscaleSelectedBaseImage(experiment: Experiment, manifest: Manife
   }
 }
 
+async function upscaleImagePack(experiment: Experiment, manifest: Manifest, outputDir: string, dryRun: boolean): Promise<void> {
+  if (!manifest.imagePack || manifest.imagePack.length === 0) {
+    throw new Error("Manifest does not contain imagePack entries.");
+  }
+  if (!experiment.baseImageUpscale) {
+    throw new Error("This config does not define baseImageUpscale.");
+  }
+
+  const upscaleDir = path.join(outputDir, "image-pack-upscaled");
+  await mkdir(upscaleDir, { recursive: true });
+
+  for (const [index, frame] of manifest.imagePack.entries()) {
+    if (frame.status !== "succeeded" || !frame.imageUrl) {
+      continue;
+    }
+
+    const input = {
+      image_url: frame.imageUrl,
+      model: experiment.baseImageUpscale.topazModel,
+      upscale_factor: experiment.baseImageUpscale.upscaleFactor,
+      output_format: experiment.baseImageUpscale.outputFormat,
+      subject_detection: experiment.baseImageUpscale.subjectDetection,
+      face_enhancement: experiment.baseImageUpscale.faceEnhancement,
+      face_enhancement_strength: experiment.baseImageUpscale.faceEnhancementStrength
+    };
+    const localPath = path.join(
+      upscaleDir,
+      `${String(index + 1).padStart(2, "0")}-${frame.type}-${frame.name}-topaz.${experiment.baseImageUpscale.outputFormat}`
+    );
+
+    if (dryRun) {
+      console.log("[dry-run] image-pack upscale request", JSON.stringify({ model: experiment.baseImageUpscale.model, input }, null, 2));
+      frame.upscaleStatus = "dry-run";
+      frame.upscaledImageUrl = `dry-run://${frame.name}-topaz.${experiment.baseImageUpscale.outputFormat}`;
+      frame.upscaledLocalPath = localPath;
+      continue;
+    }
+
+    try {
+      console.log(`[image-pack-upscale] enhancing ${frame.name}`);
+      const result = await fal.subscribe(experiment.baseImageUpscale.model, {
+        input,
+        logs: true,
+        onQueueUpdate: createStatusLogger(`[image-pack-upscale:${frame.name}]`)
+      });
+      const imageUrl = getOutputImageUrl(result);
+      await downloadFile(imageUrl, localPath);
+      frame.upscaleStatus = "succeeded";
+      frame.upscaledImageUrl = imageUrl;
+      frame.upscaledLocalPath = localPath;
+      frame.upscaleProviderResult = result;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : String(error);
+      frame.upscaleStatus = "failed";
+      frame.upscaleError = message;
+      manifest.errors.push(`${frame.name}: upscale: ${message}`);
+      console.error(`[image-pack-upscale:${frame.name}] failed: ${message}`);
+    }
+  }
+}
+
 function resolveStoryboardImageUrls(experiment: Experiment, manifest: Manifest, dryRun: boolean): string[] {
   if (!experiment.storyboard) {
     return [];
@@ -922,7 +1040,7 @@ function resolveStoryboardImageUrls(experiment: Experiment, manifest: Manifest, 
     .filter((url): url is string => Boolean(url));
 
   const selectedUrl = experiment.selectedIdol?.imageUrl ?? manifest.selectedIdol?.imageUrl;
-  const urls = [...(selectedUrl ? [selectedUrl] : []), ...imagePackUrls];
+  const urls = [...experiment.storyboard.imageUrls, ...(selectedUrl ? [selectedUrl] : []), ...imagePackUrls];
 
   if (urls.length > 0) {
     return urls.slice(0, 9);
@@ -939,7 +1057,7 @@ async function generateReferenceVideo(experiment: Experiment, manifest: Manifest
   await mkdir(videosDir, { recursive: true });
 
   const imageUrls = resolveStoryboardImageUrls(experiment, manifest, dryRun);
-  const audioUrl = manifest.music?.audioUrl;
+  const audioUrl = experiment.storyboard.audioUrl ?? manifest.music?.audioUrl;
   if (imageUrls.length === 0) {
     throw new Error("No selected idol or storyboard image pack references available for reference video.");
   }
@@ -957,7 +1075,7 @@ async function generateReferenceVideo(experiment: Experiment, manifest: Manifest
     generate_audio: experiment.referenceVideo.generateAudio,
     ...(experiment.referenceVideo.seed === undefined ? {} : { seed: experiment.referenceVideo.seed })
   };
-  const localPath = path.join(videosDir, "mina-rae-lumora-reference-video.mp4");
+  const localPath = path.join(videosDir, `${experiment.storyboard.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "reference-video"}.mp4`);
 
   manifest.referenceVideo = {
     status: "pending",
@@ -976,7 +1094,7 @@ async function generateReferenceVideo(experiment: Experiment, manifest: Manifest
   }
 
   try {
-    console.log("[reference-video] generating Mina Rae Lumora hero video");
+    console.log(`[reference-video] generating ${experiment.storyboard.title}`);
     const result = await fal.subscribe(experiment.referenceVideo.model, {
       input,
       logs: true,
@@ -1367,6 +1485,13 @@ async function main(): Promise<void> {
     await upscaleSelectedBaseImage(experiment, manifest, outputDir, options.dryRun);
     await saveManifest(manifest, outputDir);
     console.log(`Upscale manifest saved to ${path.join(outputDir, "manifest.json")}`);
+    return;
+  }
+
+  if (options.command === "upscale-image-pack") {
+    await upscaleImagePack(experiment, manifest, outputDir, options.dryRun);
+    await saveManifest(manifest, outputDir);
+    console.log(`Image pack upscale manifest saved to ${path.join(outputDir, "manifest.json")}`);
     return;
   }
 

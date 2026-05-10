@@ -1,0 +1,52 @@
+{
+  "name": "switchlight-9-panel-nano-banana-2-final-panels",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack frame imageRefs from the Nano Banana 2 retry registry.",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this retry config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-9-panel-nano-banana-2-personalities.json",
+    "imageSize": "portrait_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-08-step-pose-shine-hit-nano-banana-2",
+        "type": "storyboard",
+        "imageRefs": ["panel-07-hook"],
+        "prompt": "Edit the provided Switchlight hook-stage image into the next storyboard frame. Keep the same fictional LUMINA group, same faces, same hair, same pearl pink/chrome/black wardrobe family, same chrome stage, same pearl light panels, and same reflective black floor. Move the group from the hook hand gesture into a clean synchronized 'Step, pose, shine' hit after one forward step. Rae stays center. Jia and Nari look sharper and more athletic. Sena and Yumi frame the sides. Make it a premium vertical 9:16 K-pop music-video keyframe. No text, logos, products, beauty claims, real celebrity likeness, or copied choreography."
+      },
+      {
+        "name": "panel-09-final-switchlight-pose-nano-banana-2",
+        "type": "storyboard",
+        "imageRefs": ["panel-07-hook"],
+        "prompt": "Edit the provided Switchlight hook-stage image into the final storyboard frame. Keep the same fictional LUMINA group, same faces, same hair, same pearl pink/chrome/black wardrobe family, same chrome stage, same pearl light panels, and same reflective black floor. The group holds a confident final Switchlight pose under fully activated pearl/chrome lights. Rae is calm center, Jia angled and confident, Sena luminous, Nari grounded, Yumi warm. Chrome arches frame them like an opened doorway. Make it a premium vertical 9:16 K-pop music-video keyframe. No text, logos, products, beauty claims, real celebrity likeness, or copied choreography."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "9:16",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This Nano Banana 2 retry config generates final Panels 8 and 9 only."
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "name": "switchlight-12-panel-gpt-photoreal-retry",
+  "slug": "lumina-switchlight",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "music": {
+    "model": "fal-ai/minimax-music/v2.6",
+    "prompt": "Accepted Switchlight audio. Do not regenerate music from this retry config.",
+    "lyrics": "Accepted Switchlight audio exists in outputs/lumina-switchlight/2026-05-08T21-24-08-660Z-switchlight/manifest.json.",
+    "lyricsOptimizer": false,
+    "isInstrumental": false
+  },
+  "baseImageUpscale": {
+    "model": "fal-ai/topaz/upscale/image",
+    "topazModel": "Standard V2",
+    "upscaleFactor": 2,
+    "outputFormat": "png",
+    "subjectDetection": "All",
+    "faceEnhancement": true,
+    "faceEnhancementStrength": 0.8
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "personalitiesPath": "lumina/storyboards/switchlight-12-panel-gpt-photoreal-refs.json",
+    "imageSize": "auto",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "panel-02-chrome-sleeve-first-spark-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-02", "jia"],
+        "prompt": "Use sketch as composition and Jia as identity anchor. Photoreal 16:9 K-pop MV still: Jia adjusts a chrome-black jacket in a backstage mirror hallway, confident first spark, chrome side light, pearl bulbs, black-chrome floor. No text, logos, products, sketch style, annotations, or real celebrity likeness."
+      },
+      {
+        "name": "panel-03-one-breath-room-shines-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-03", "rae"],
+        "prompt": "Use sketch as composition and Rae as center identity anchor. Photoreal 16:9 K-pop MV still: five-member group in dressing room as pearl bulbs ignite and everyone turns toward the doorway; Rae calm center, other members cohesive but softer. No text, logos, products, sketch style, annotations, or real celebrity likeness."
+      },
+      {
+        "name": "panel-08-switch-the-light-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-08", "nari"],
+        "prompt": "Use sketch as composition and Nari as identity anchor. Photoreal 16:9 K-pop MV still: Nari cues first count at chrome hallway threshold, group behind her locks into lanes, pearl panels switch on toward stage. No text, logos, products, sketch style, annotations, copied choreography, or real celebrity likeness."
+      },
+      {
+        "name": "panel-09-hook-formation-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-09", "rae"],
+        "prompt": "Use sketch as composition and Rae as center identity anchor. Photoreal 16:9 K-pop MV still: full stage reveal, group diagonal hook formation, Rae center, side members framing, original light-switch hand gesture, pearl panels brightening, reflective floor. No text, logos, products, sketch style, annotations, copied choreography, or real celebrity likeness."
+      },
+      {
+        "name": "panel-10-step-pose-shine-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-10", "rae"],
+        "prompt": "Use sketch as composition and Rae as center identity anchor. Photoreal 16:9 K-pop MV still: synchronized group pose after one forward step, five pearl light columns, reflective black-chrome floor, precise commercial performance hit. No text, logos, products, sketch style, annotations, copied choreography, or real celebrity likeness."
+      },
+      {
+        "name": "panel-11-camera-catch-rap-charge-gpt-retry",
+        "type": "storyboard",
+        "imageRefs": ["sketch-11", "jia", "nari"],
+        "prompt": "Use sketch as composition and Jia/Nari as identity anchors. Photoreal 16:9 K-pop MV still: Jia cuts toward lens with sharp attitude while Nari crosses behind with count gesture, chrome rim light, kinetic rap energy. No text, logos, products, sketch style, annotations, copied choreography, or real celebrity likeness."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This config retries failed GPT photoreal panels only."
+    }
+  ]
+}
