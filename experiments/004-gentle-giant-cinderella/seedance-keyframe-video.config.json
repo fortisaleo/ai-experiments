@@ -1,0 +1,25 @@
+{
+  "name": "gentle-giant-cinderella-seedance-keyframe-video",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Pass the Nano Banana 2 keyframe URL with --image-url.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "kitchen-collapse-to-transformation",
+      "prompt": "Animate this single cinematic keyframe into a 15-second sincere gothic fairytale scene. Keep the same fictional hulking gentle giant Cinderella character, same body scale, same servant clothing, same brutalist soot-black kitchen, wet stone floor, tiny glass slipper, broken porcelain, coal bucket, laundry, steam, and orange hearth plus cold moonbeam lighting. Start with him kneeling exhausted on the wet stone floor, breathing heavily. His huge careful hand reaches toward the tiny glass slipper; soot and steam drift naturally. He slowly lifts his gaze as industrial fairy-godmother light grows from the hearth, ash rises like black snow, fabric begins to pull upward around him, and the glass slipper glints. End on a restrained transformation beat: dignity returning, posture lifting, but still grounded and tender. Cinematic low 35mm camera, subtle push-in, real body weight, realistic floor contact, fabric motion, ash particles, wet reflections. No celebrity likeness, no Dave Bautista face, no copied tattoos, no wrestling ring, no Disney/franchise costume, no comedy mugging, no readable text, no logos, no floating feet, no melted body, no random AI drifting."
+    }
+  ]
+}
+

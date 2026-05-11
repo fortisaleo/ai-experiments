@@ -22,6 +22,13 @@
     "generate:003:video": "tsx src/generate.ts video --config experiments/003-kpop-idol-beauty-ugc/config.json",
     "generate:003:assemble": "tsx src/generate.ts assemble --config experiments/003-kpop-idol-beauty-ugc/config.json",
     "generate:003:members": "tsx src/generate.ts members --config experiments/003-kpop-idol-beauty-ugc/config.json",
+    "audit": "tsx src/audit.ts",
+    "audit:idea": "tsx src/audit.ts --agent content/seedance-prompt-lab/agents/idea-audit.md",
+    "audit:character": "tsx src/audit.ts --model google/gemini-3.1-flash-lite --agent content/seedance-prompt-lab/agents/character-sheet-audit.md",
+    "audit:keyframes": "tsx src/audit.ts --model google/gemini-3.1-flash-lite --agent content/seedance-prompt-lab/agents/keyframe-audit.md",
+    "audit:storyboard": "tsx src/audit.ts --model google/gemini-3.1-flash-lite --agent content/seedance-prompt-lab/agents/storyboard-shot-audit.md",
+    "audit:viral": "tsx src/audit.ts --agent content/seedance-prompt-lab/agents/viral-audit.md",
+    "audit:video": "tsx src/audit.ts --agent content/seedance-prompt-lab/agents/video-critique.md",
     "typecheck": "tsc --noEmit"
   },
   "repository": {

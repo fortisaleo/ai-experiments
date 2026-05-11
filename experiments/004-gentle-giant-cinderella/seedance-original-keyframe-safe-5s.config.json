@@ -1,0 +1,25 @@
+{
+  "name": "gentle-giant-cinderella-seedance-original-keyframe-safe-5s",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Pass the original keyframe URL with --image-url.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "5",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "safe-glass-slipper-reach",
+      "prompt": "Animate this cinematic keyframe into a 5-second gothic fairytale moment. Keep the same original palace worker, same soot-covered servant clothing, same wet stone kitchen, same tiny glass slipper, same broken porcelain, same hearth light, and same cold window beam. He kneels exhausted, breathes slowly, and carefully reaches one hand toward the tiny glass slipper. Steam drifts, hearth light grows slightly, wet floor reflections shimmer, and the camera makes a subtle slow push-in. Natural body weight, grounded floor contact, gentle fabric motion, restrained emotion. No recognizable public figure, no franchise costume, no comedy mugging, no readable logos, no captions, no anime, no plastic CGI, no modern superhero styling, no floating feet, no melted body, no random drifting."
+    }
+  ]
+}
+

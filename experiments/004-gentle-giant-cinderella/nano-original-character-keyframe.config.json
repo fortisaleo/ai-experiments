@@ -1,0 +1,37 @@
+{
+  "name": "gentle-giant-cinderella-original-character-keyframe",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack for the Nano Banana 2 text-only original character keyframe.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "original-gentle-giant-kitchen-slipper-keyframe",
+        "type": "storyboard",
+        "prompt": "Create a single premium cinematic 16:9 movie still, not a storyboard sheet and not a contact sheet. No reference images are provided; invent a completely original fictional character.\n\nCharacter: an original gentle giant Cinderella figure, not based on any real person. He is tall, broad, powerful, middle-aged, weathered, bald or close-cropped, soot-covered, with a strong but kind face, exhausted eyes, massive careful hands, heavy grounded posture, and tender restraint. He should feel physically imposing but emotionally vulnerable. Avoid all celebrity likeness, Dave Bautista resemblance, copied tattoos, wrestling identity, superhero styling, or franchise costume.\n\nScene: brutalist palace kitchen at night, wet reflective stone floor, soot-black hearth glowing orange in the background, furnace steam, concrete pillars, rough wooden beams, high window cutting a cold moonbeam through smoke. The gentle giant kneels on one knee after a midnight chores collapse. Torn servant work shirt, rough stained apron, patched trousers, worn boots. One huge careful hand reaches toward a tiny delicate glass slipper on the wet floor. Broken porcelain, spilled coal bucket, laundry, mop, and water runoff surround him. The tiny glass slipper must be clearly readable, sacred, fragile, and absurdly small against his hand.\n\nCamera and style: low 35mm cinematic wide-medium angle, high-budget gothic fairytale film still, realistic human texture, detailed soot and wet fabric, shallow haze depth, dramatic negative space, strong foreground reflections, orange hearth glow mixed with cold blue moonbeam. The tone is sincere, tender, repressed, and mythic, not parody or comedy. No text, no captions, no logos, no Disney/franchise Cinderella likeness, no recognizable celebrity, no wrestling ring, no tattoos copied from anyone, no anime, no plastic CGI, no superhero gloss."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}

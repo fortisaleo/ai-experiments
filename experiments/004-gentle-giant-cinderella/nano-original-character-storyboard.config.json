@@ -1,0 +1,44 @@
+{
+  "name": "gentle-giant-cinderella-original-character-storyboard",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack for the Nano Banana 2 original-character director storyboard.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "original-gentle-giant-keyframe",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99afaf/6-1lQXzz0oz2O01Oy8Hv4_BraPsb3E.png",
+    "localPath": "outputs/004-gentle-giant-cinderella/2026-05-10T19-30-32-127Z-gentle-giant-cinderella-original-character-keyframe/image-pack/01-storyboard-original-gentle-giant-kitchen-slipper-keyframe.png",
+    "notes": "Canonical original fictional character keyframe for the clean Gentle Giant Cinderella branch."
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "original-character-12-panel-director-board",
+        "type": "storyboard",
+        "prompt": "Create one complete 12-panel director-style PREVIS storyboard sheet for a sincere gothic fairytale short film. Use the attached keyframe as the exact fictional character identity anchor. Preserve his face type, weathered age, broad body scale, soot-covered servant wardrobe, rough stained apron, exhausted eyes, emotional restraint, and gentle physicality. Keep him recognizably the same original character throughout the board.\n\nFormat: one wide storyboard sheet with 12 horizontal 16:9 cinematic panels arranged in a clean 4x3 grid. Hand-drawn pencil-and-marker director-board style, grayscale sketch base with selective colored production notes. This is not photoreal stills and not a contact sheet. It should feel like an expensive gothic fairytale previs sheet.\n\nAnnotation system: red arrows = body movement, blue arrows = camera movement, green notes = framing and composition, orange arrows = lighting direction, purple notes = emotional emphasis, black text = short panel titles and shot/lens labels. Keep annotations legible and outside or around the drawn action, so they do not become props inside the scene.\n\nWorld: one coherent brutalist palace. Below-stairs soot-black kitchen, industrial hearth, furnace steam, wet stone floors, broken porcelain, tiny cleaning tools, concrete stairwell, severe doorway light, concrete-and-crystal ballroom threshold, final wet stone stair. The tiny glass slipper is the recurring visual motif: fragile, sacred, and small against his huge careful hands. Tone is sincere, tender, repressed, mythic, and emotionally restrained, never parody.\n\nPanel 1: KITCHEN ENDURANCE — WS / slow push. Wide brutalist kitchen. The gentle giant kneels by the soot-black hearth, scrubbing wet stone with tiny cleaning tools. Red arrows show heavy scrubbing and hunched shoulders. Blue arrow shows slow push-in. Orange hearth glow through soot. Purple note: quiet endurance.\n\nPanel 2: HOUSEHOLD ABOVE — high angle / compressed architecture. View from concrete stairwell. Elegant household silhouettes pass overhead while he remains below in ash and steam. Green notes emphasize vertical power imbalance and oppressive architecture. Purple note: repression.\n\nPanel 3: DELICATE CUP REPAIR — MCU hands / 85mm. His huge careful hands repair a cracked porcelain cup beside a small ribbon or fine fabric scrap. Red micro-arrows show delicate finger movement. Orange thin window beam. Purple note: hidden softness.\n\nPanel 4: INVITATION THROUGH SMOKE — low insert / doorway light. A royal ball invitation slides under the kitchen door. His soot-covered hand hovers over it, afraid to touch. Blue note: low creeping camera. Orange light blade cuts through smoke. Purple note: forbidden longing.\n\nPanel 5: BROKEN REFLECTION — distorted close-up / reflection. His broad soot-covered silhouette fragments in a cracked copper pan or broken mirror, imagining elegance he cannot yet claim. Green notes mark split reflection. Purple note: shame and desire.\n\nPanel 6: CHORES COLLAPSE — wide action / handheld drift. Laundry, coal bucket, dishes, and mop spill across the wet floor as he nearly falls under the impossible burden. Red arrows show body drop, sliding dishes, falling laundry. Blue handheld drift. Purple note: exhaustion breaks through.\n\nPanel 7: INDUSTRIAL FAIRY LIGHT — wide low angle / furnace threshold. A severe luminous presence appears through furnace steam. The brutalist kitchen becomes cathedral-like. Orange backlight floods through ash and steam. Green notes emphasize sacred geometry. Purple note: impossible mercy.\n\nPanel 8: ASH AND SILK — low angle / vertical lift. Soot lifts like black snow; the rough apron transforms into structured midnight-silver fairytale formalwear scaled to his body. Red arrows show rising fabric and lifted posture. Orange furnace light becomes moon-silver. Purple note: dignity restored.\n\nPanel 9: TINY GLASS SLIPPER — reverent macro / shallow focus. A delicate glass slipper sits in his enormous palm. The scale contrast is serious and sacred, not a joke. Green scale contrast note. Orange caustic sparkle. Purple note: impossible hope.\n\nPanel 10: BALLROOM THRESHOLD — long lens wide / tracking. He steps from kitchen darkness into a vast concrete-and-crystal ballroom entrance. Wet reflections stretch his transformed silhouette. Blue tracking arrow. Green corridor-to-ballroom composition. Purple note: fear becoming presence.\n\nPanel 11: RESTRAINED DANCE — medium-wide orbit / graceful restraint. He dances with unexpected restraint and grace, one massive hand held tenderly, posture careful and controlled. Guests are distant silhouettes. Red arrows show controlled turn and fabric trail. Blue orbit arrow. Purple note: being seen.\n\nPanel 12: SLIPPER REMAINS — final wide hero / locked camera. Harsh isolated spotlight on the tiny glass slipper left on wet stone stairs; his huge silhouette disappears into darkness beyond. Orange single hard spotlight. Green final negative-space composition. Purple note: mystery and longing.\n\nNegative rules: no recognizable public figure, no franchise costume, no comedy mugging, no readable logos, no photoreal contact sheet, no plastic CGI, no anime, no modern superhero styling, no text inside the fictional scene beyond production annotations."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}
+

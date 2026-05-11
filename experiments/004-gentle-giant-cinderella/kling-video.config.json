@@ -1,0 +1,47 @@
+{
+  "name": "gentle-giant-cinderella-kling-video",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config runs Kling reference-to-video from existing storyboard and character references.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "gentle-giant-character-reference",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99ab56/OEIgyQh7SQoj5gMvLBieu_gentle-giant-character-reference.jpeg",
+    "localPath": "workflows/bautista-image.jpeg",
+    "notes": "Fictional character/body reference for scale and physicality only. Not Dave Bautista, not a celebrity identity target."
+  },
+  "storyboard": {
+    "title": "Gentle Giant Cinderella Kling Video",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a99ab61/KOyFzb_WPutwit9GdmNTd_HBm4xYPZ.png"
+    ],
+    "imageRefs": [],
+    "prompt": "Use @Image1 as the storyboard reference for shot order and use @Element1 as the fictional hulking gentle giant Cinderella character. Create a sincere gothic fairytale trailer in 15 seconds. Follow the storyboard beats in order: soot-black kitchen endurance, oppressive household above, delicate cup repair, invitation through smoke, broken mirror wish, chores collapse, industrial fairy-godmother light, ash-and-silk transformation, tiny glass slipper in enormous palm, concrete-and-crystal ballroom entrance, restrained serious dance, final spotlight on the tiny slipper. Preserve @Element1's massive physicality, broad shoulders, powerful arms, huge careful hands, heavy grounded body weight, and tender exhausted presence. Brutalist palace, wet stone, soot, steam, low-key cinematic lighting, fabric and ash motion. No celebrity likeness, no Dave Bautista face, no copied tattoos, no wrestling ring, no Disney/franchise costume, no comedy mugging, no readable text or logos, no floating feet.",
+    "audioRef": "none"
+  },
+  "referenceVideo": {
+    "model": "fal-ai/kling-video/o3/standard/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use the video command with referenceVideo."
+    }
+  ]
+}
+

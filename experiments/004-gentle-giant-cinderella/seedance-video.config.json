@@ -1,0 +1,47 @@
+{
+  "name": "gentle-giant-cinderella-seedance-video",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config runs Seedance reference-to-video from existing storyboard and character references.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "gentle-giant-character-reference",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99ab56/OEIgyQh7SQoj5gMvLBieu_gentle-giant-character-reference.jpeg",
+    "localPath": "workflows/bautista-image.jpeg",
+    "notes": "Fictional character/body reference for scale and physicality only. Not Dave Bautista, not a celebrity identity target."
+  },
+  "storyboard": {
+    "title": "Gentle Giant Cinderella Seedance Video",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a99ab61/KOyFzb_WPutwit9GdmNTd_HBm4xYPZ.png"
+    ],
+    "imageRefs": [],
+    "prompt": "Use @Image1 as the complete 12-panel director storyboard source and @Image2 as the fictional character/body reference. Follow the storyboard strictly from Panel 1 to Panel 12, left to right, top to bottom. Do not skip, merge, or reorder scenes.\n\nCreate a 15-second sincere gothic fairytale trailer about a fictional hulking gentle giant Cinderella figure. Preserve the character reference's massive physicality, broad shoulders, powerful arms, huge careful hands, heavy body weight, and tender exhausted presence. Do not copy any real person's face, identity, tattoos, costume, or wrestling context.\n\nCompress the full storyboard into 12 fast cinematic beats: soot-black kitchen endurance, household repression above the stairs, delicate cup repair, invitation through smoke, broken mirror wish, midnight chores collapse, industrial fairy-godmother light, ash-and-silk transformation, tiny glass slipper in enormous palm, crossing into the concrete-and-crystal ballroom, restrained serious dance, final spotlight on the tiny slipper as the huge silhouette disappears.\n\nCamera follows the board: slow push, high-angle oppressive architecture, macro hands, low doorway insert, distorted reflection, handheld collapse, low-angle transformation, reverent slipper macro, long-lens ballroom entrance, graceful orbit dance, locked final hero. Use grounded floor contact, real body weight, fabric/ash/steam movement, wet stone reflections, and cinematic low-key lighting. Final slipper spotlight holds slightly longer.\n\nNegative rules: no Dave Bautista face, no celebrity likeness, no copied tattoos, no wrestling ring, no Disney Cinderella likeness, no recognizable franchise costume, no comedy mugging, no readable text, no logos, no captions, no anime, no plastic CGI, no floating feet, no melted body, no random AI drifting.",
+    "audioRef": "none"
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use the video command with referenceVideo."
+    }
+  ]
+}
+

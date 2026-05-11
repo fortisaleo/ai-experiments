@@ -1,0 +1,44 @@
+{
+  "name": "gentle-giant-cinderella-nano-reference-keyframe",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use imagePack for the Nano Banana 2 cinematic reference keyframe.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "gentle-giant-character-reference",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99ab56/OEIgyQh7SQoj5gMvLBieu_gentle-giant-character-reference.jpeg",
+    "localPath": "workflows/bautista-image.jpeg",
+    "notes": "Fictional character/body reference for scale and physicality only. Not Dave Bautista, not a celebrity identity target."
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "kitchen-collapse-cinematic-keyframe",
+        "type": "storyboard",
+        "prompt": "Create a single premium cinematic 16:9 movie still, not a storyboard sheet. Use the attached reference image as the fictional character/body reference only. Preserve the reference's massive body scale, broad shoulders, powerful arms, huge hands, and hulking grounded physicality, but do not copy any real person's face, tattoos, costume, wrestling context, or celebrity identity.\n\nScene: a fictional gentle giant Cinderella figure in a brutalist palace kitchen at night, kneeling on a wet stone floor after a midnight chores collapse. He is soot-covered and exhausted, wearing torn servant work clothes and a rough apron. One huge careful hand reaches toward a tiny delicate glass slipper on the floor; broken porcelain, spilled laundry, a coal bucket, and a mop surround him. A soot-black hearth glows orange behind him, furnace steam drifts through concrete architecture, and a thin moon-silver light beam cuts through smoke from a high window. The moment is sincere, tender, gothic, and emotionally restrained, not parody.\n\nCamera: low 35mm cinematic wide-medium angle, strong foreground wet reflections, shallow haze depth, dramatic negative space, high-budget dark fairytale film still. Lighting: orange hearth glow plus cold moon beam, wet stone reflections, soot particles and steam visible. Make the tiny glass slipper readable and sacred. No text, no logos, no captions, no Disney/franchise costume, no celebrity likeness, no Dave Bautista face, no wrestling ring, no comedy mugging, no superhero gloss, no anime, no plastic CGI."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility."
+    }
+  ]
+}
+

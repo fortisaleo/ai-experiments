@@ -1,0 +1,64 @@
+{
+  "name": "minotaur-mortgage",
+  "slug": "005-minotaur-mortgage",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Create a photoreal cinematic character sheet for an original fictional minotaur mortgage applicant. No background scene, no story action, no readable text.\n\nCharacter: massive horned humanoid-bull figure with tired humanlike eyes, broad shoulders, heavy careful hands, restrained posture, worn charcoal suit, slightly too-small white dress shirt, loosened dark tie, scuffed black dress shoes. Curved horns, natural dark fur around head and neck, expressive but serious face, quiet shame and dignity. He should feel like a middle-aged office client trying to appear composed, not a warrior or monster.\n\nSheet layout: front view, three-quarter view, side profile, close-up face, close-up hands, clothing detail. Neutral gray studio background. Consistent identity across all views. Premium photoreal film reference quality.\n\nNegative: no celebrity likeness, no franchise creature design, no game character styling, no fantasy armor, no weapons, no battle scars, no comedy expression, no readable labels, no captions, no logos, no cartoon, no anime, no plastic CGI.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "imagePack": {
+    "model": "openai/gpt-image-2/edit",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "application-wide",
+        "type": "storyboard",
+        "prompt": "Photoreal 16:9 cinematic still. Use the minotaur character sheet as the strict identity anchor: same curved horns, tired humanlike eyes, broad shoulders, heavy careful hands, worn charcoal suit, loosened dark tie, restrained posture.\n\nA massive original minotaur sits in a too-small client chair inside a brutalist bank office, carefully hunched so his horns do not scrape the low acoustic ceiling. Across the desk, a calm mortgage officer reviews a tiny stack of forms. Cold fluorescent lighting, concrete walls, frosted glass offices, institutional gray carpet, tiny paperwork dwarfed by his hands. Serious prestige financial drama tone, quiet shame, no comedy. No readable text, no logos."
+      },
+      {
+        "name": "collateral-macro",
+        "type": "storyboard",
+        "prompt": "Photoreal 16:9 cinematic macro still. Use the minotaur character sheet as the strict identity anchor, especially his heavy careful hands, charcoal suit sleeve, and restrained physicality.\n\nHuge minotaur hand points gently at an abstract maze-like property diagram on bank paperwork. The diagram has no readable text. A red stamp and closed folder sit nearby. A mortgage officer's human hand enters frame with precise bureaucratic calm. Cold fluorescent bank light, shallow depth of field, concrete desk surface, paper texture, restrained tension. No readable text, no logos, no comedy."
+      },
+      {
+        "name": "final-denial-hold",
+        "type": "storyboard",
+        "prompt": "Photoreal 16:9 cinematic wide still. Use the minotaur character sheet as the strict identity anchor: same horns, face, suit, tie, body scale, and tired restrained posture.\n\nThe minotaur stands alone in a brutalist bank lobby under harsh fluorescent lights, holding a small closed folder with a red stamp mark and no readable words. The mortgage officer is blurred far behind him, already calling the next appointment. Concrete walls, frosted glass, institutional gray carpet, cold daylight, massive horned silhouette, restrained humiliation. Serious final-frame drama, no parody, no captions, no logos."
+      }
+    ]
+  },
+  "storyboard": {
+    "title": "Minotaur Mortgage Seedance Reference Video",
+    "imageRefs": [
+      "application-wide",
+      "collateral-macro",
+      "final-denial-hold"
+    ],
+    "prompt": "15-second 16:9 cinematic absurd sincere scene.\n\nUse @Image1 as the strict identity reference for the original fictional minotaur. Use @Image2, @Image3, and @Image4 as the sequential story keyframes. Do not treat @Image1 as a story beat.\n\nKeep the same minotaur identity throughout: massive horned humanoid-bull figure, worn charcoal suit, loosened dark tie, broad shoulders, curved horns, tired humanlike eyes, heavy careful hands, restrained posture.\n\nTone: serious prestige financial drama. No parody, no comedy faces, no wink at camera. The scene is wordless and emotionally restrained.\n\n[00:00-00:04] Shot 1: Application.\nFollow @Image2. Wide-medium brutalist bank office. The minotaur sits too large for a small client chair, carefully hunched so his horns do not scrape the low acoustic ceiling. A calm mortgage officer reviews a tiny stack of forms across the desk. Cold fluorescent light, concrete walls, frosted glass, institutional gray carpet. Camera slow dolly-in from the side. Chair creaks softly, paper rustles, distant office murmur.\n\n[00:04-00:10] Shot 2: Collateral Review.\nFollow @Image3. Macro close-up on huge minotaur hand pointing gently at a maze-like property diagram. The diagram is abstract and not readable text. His fingers tremble slightly. The loan officer slides a folder back and presses a red stamp onto the top page with a heavy thud. Cut to restrained close-up of the minotaur's tired eyes lowering in quiet shame. Fluorescent hum continues.\n\n[00:10-00:15] Shot 3: Denial.\nFollow @Image4. Locked wide shot near the bank exit. The minotaur stands alone under harsh fluorescent lights holding a small closed folder with a red stamp mark, no readable words. The loan officer is blurred far behind him, already calling the next appointment. The minotaur lowers his head slightly and exhales. Hold the final frame for the last 1 second.\n\nAudio: ambient sound only, no spoken dialogue. Fluorescent electrical hum, soft chair creak, paper rustle, folder sliding on desk, one heavy red stamp thud, distant office murmur, quiet minotaur breathing, subtle exhale in the final shot. No music, no narration, no comedic sound effects.\n\nContinuity: same minotaur, same suit, same tie, same bank, same cold lighting, realistic paper handling, grounded body weight, natural floor contact, subtle breathing, no exaggerated acting.\n\nNegative: no spoken dialogue, no narration, no music, no captions, no readable text, no logos, no celebrity likeness, no franchise creature design, no fantasy battlefield, no comedy mugging, no slapstick, no floating feet, no melted hands, no random camera drift.",
+    "audioRef": "none"
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use image, image-pack, then video commands."
+    }
+  ]
+}

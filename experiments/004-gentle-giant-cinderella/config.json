@@ -1,0 +1,43 @@
+{
+  "name": "gentle-giant-cinderella-storyboard",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. Use the imagePack storyboard-sheet frame for the Gentle Giant Cinderella director board.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "gentle-giant-character-reference",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99ab56/OEIgyQh7SQoj5gMvLBieu_gentle-giant-character-reference.jpeg",
+    "localPath": "workflows/bautista-image.jpeg",
+    "notes": "Fictional character/body reference for scale and physicality only. Not Dave Bautista, not a celebrity identity target."
+  },
+  "imagePack": {
+    "model": "fal-ai/nano-banana-2/edit",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png",
+    "frames": [
+      {
+        "name": "gentle-giant-cinderella-12-panel-director-board",
+        "type": "storyboard",
+        "prompt": "Create one complete 12-panel director-style PREVIS storyboard sheet for a sincere gothic fairytale short film. Use the attached character reference image as the fictional original character reference only: a hulking gentle giant Cinderella figure with massive wrestler/action-hero physicality, broad shoulders, powerful arms, huge hands, strong posture, and a tender exhausted presence. Preserve the reference's body scale and physicality, but do not copy any real person's face, identity, tattoos, costume, wrestling context, or celebrity likeness. This is not Dave Bautista; it is an original fictional fairytale character.\n\nFormat: one wide storyboard sheet with 12 horizontal 16:9 cinematic panels arranged in a clean 4x3 grid. Pencil-and-marker director-board style, grayscale sketch base, rough production drawing energy, strong silhouette readability, brutalist fairytale atmosphere. Add dense but legible production annotations like a professional director storyboard: red arrows for body movement, blue arrows for camera movement, green notes for framing and composition, orange arrows for lighting direction, purple notes for emotional emphasis, black text for short panel labels, shot labels, and lens notes. Keep annotations outside or around the drawn action so they do not become scene objects.\n\nWorld: one coherent brutalist palace. Below-stairs soot-black kitchen, industrial hearth, furnace steam, wet stone floors, cracked porcelain, tiny cleaning tools, concrete stairwells, severe doorway light, concrete-and-crystal ballroom, final wet stone stair. Sincere gothic fairytale tone, emotionally restrained, no parody, no slapstick, no comedy mugging. The tiny glass slipper is absurdly small in scale but treated like a sacred object.\n\nPanel 1: ASHES BEFORE DAWN — WS / slow push. Wide brutalist kitchen. The hulking Cinderella kneels beside a soot-black hearth, scrubbing wet stone with tiny cleaning tools. Red arrows show heavy scrubbing and hunched shoulders. Blue arrow shows slow push-in. Orange hearth glow through soot. Purple note: quiet endurance.\n\nPanel 2: THE HOUSEHOLD ABOVE — high angle / compressed architecture. View from concrete stairwell. Elegant stepfamily silhouettes pass overhead while he remains below in ash and steam. Green notes emphasize vertical power imbalance and oppressive architecture. Purple note: repression.\n\nPanel 3: TENDERNESS IN THE KITCHEN — MCU hands / 85mm. Huge careful hands repair a cracked porcelain cup beside a tiny blue ribbon or fine fabric scrap. Red micro-arrows show delicate finger movement. Orange thin window beam. Purple note: hidden softness, not brute force.\n\nPanel 4: INVITATION THROUGH SMOKE — low insert / doorway light. The royal ball invitation slides under the kitchen door. His soot-covered hand hovers over it, afraid to touch. Blue note: low creeping camera. Orange light blade cuts through smoke. Purple note: forbidden longing.\n\nPanel 5: BROKEN MIRROR WISH — reflection shot / distorted close-up. His soot-covered broad silhouette fragments in a cracked copper pan or broken mirror, imagining elegance he cannot yet claim. Green notes mark split reflection. Purple note: shame and desire.\n\nPanel 6: MIDNIGHT CHORES COLLAPSE — wide action / handheld drift. Laundry, coal bucket, dishes, and mop spill across the wet floor as he nearly falls under the impossible burden. Red arrows show body drop, sliding dishes, falling laundry. Blue handheld drift. Purple note: exhaustion breaks through.\n\nPanel 7: FAIRY GODMOTHER AS INDUSTRIAL LIGHT — wide low angle / furnace threshold. A severe luminous presence appears through furnace steam. The brutalist kitchen becomes cathedral-like. Orange backlight floods through ash and steam. Green notes emphasize sacred geometry. Purple note: impossible mercy.\n\nPanel 8: TRANSFORMATION IN ASH AND SILK — low angle / vertical lift. Soot lifts like black snow; rough apron transforms into structured midnight-silver fairytale formalwear scaled to his massive body. Red arrows show rising fabric and lifted posture. Orange furnace light becomes moon-silver. Purple note: dignity restored.\n\nPanel 9: THE TINY GLASS SLIPPER — reverent macro insert / shallow focus. A delicate glass slipper sits absurdly small in his enormous palm. Treat it seriously, not as a joke. Green scale contrast note. Orange caustic sparkle. Purple note: impossible hope.\n\nPanel 10: CROSSING THE PALACE HALL — long lens wide / tracking. He steps from kitchen darkness into a vast concrete-and-crystal ballroom entrance. Wet reflections stretch his transformed silhouette. Blue tracking arrow. Green corridor-to-ballroom composition. Purple note: fear becoming presence.\n\nPanel 11: THE DANCE HELD SERIOUSLY — medium-wide orbit / graceful restraint. He dances with unexpected elegance, one massive hand held tenderly, posture careful and restrained. Guests are distant silhouettes. Red arrows show controlled turn and fabric trail. Blue orbit arrow. Purple note: being seen.\n\nPanel 12: MIDNIGHT, THE SLIPPER REMAINS — final wide hero / locked camera. Harsh isolated spotlight on the tiny glass slipper left on wet stone stairs; his huge silhouette disappears into darkness beyond. Orange single hard spotlight. Green final negative-space composition. Purple note: mystery and longing.\n\nNegative rules: no exact celebrity likeness, no Dave Bautista face, no real-person identity, no copied tattoos, no wrestling ring, no Disney Cinderella likeness, no recognizable franchise costume, no readable logos, no scene captions inside the world, no comedy mugging, no superhero gloss, no anime, no plastic CGI, no photoreal final-frame contact sheet. This must look like a hand-drawn director storyboard, not finished movie stills."
+      }
+    ]
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. This config is for storyboard prompt dry-run review before generation."
+    }
+  ]
+}

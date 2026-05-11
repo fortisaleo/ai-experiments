@@ -4,3 +4,4 @@ outputs/
 dist/
 .DS_Store
 *.log
+references/

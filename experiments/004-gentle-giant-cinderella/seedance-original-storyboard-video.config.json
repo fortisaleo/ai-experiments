@@ -1,0 +1,47 @@
+{
+  "name": "gentle-giant-cinderella-seedance-original-storyboard-video",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config runs Seedance reference-to-video from the clean original-character storyboard and keyframe.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "selectedBaseImage": {
+    "name": "original-gentle-giant-keyframe",
+    "imageUrl": "https://v3b.fal.media/files/b/0a99afaf/6-1lQXzz0oz2O01Oy8Hv4_BraPsb3E.png",
+    "localPath": "outputs/004-gentle-giant-cinderella/2026-05-10T19-30-32-127Z-gentle-giant-cinderella-original-character-keyframe/image-pack/01-storyboard-original-gentle-giant-kitchen-slipper-keyframe.png",
+    "notes": "Canonical original fictional character keyframe for the clean Gentle Giant Cinderella branch."
+  },
+  "storyboard": {
+    "title": "Gentle Giant Cinderella Original Storyboard Seedance Video",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a99aff4/4ZCoam7KQ3pfguScDY9f4_V6VkSBY3.png"
+    ],
+    "imageRefs": [],
+    "prompt": "Use @Image1 as the complete 12-panel director storyboard source and @Image2 as the fictional character identity reference.\n\nCreate a 15-second gothic fairytale film sequence. Follow the storyboard panels in exact order from left to right, top to bottom. Do not skip, merge, or reorder scenes.\n\nKeep the same original gentle giant palace worker identity from @Image2: weathered face, broad body scale, soot-covered servant clothing, rough apron, exhausted eyes, careful hands, grounded body weight, and tender restraint.\n\nStory beats: kitchen endurance, household above, delicate cup repair, invitation through smoke, broken reflection, chores collapse, industrial fairy light, ash-and-silk transformation, tiny glass slipper, ballroom threshold, restrained dance, final slipper remains.\n\nThe world is one coherent brutalist palace: soot-black kitchen, wet stone floors, furnace steam, concrete stairwell, severe doorway light, concrete-and-crystal ballroom, final stone stairs. The tiny glass slipper must remain the emotional visual motif.\n\nUse cinematic motion only: slow push, high-angle architecture, macro hands, low doorway insert, reflection close-up, handheld collapse, low-angle transformation, reverent slipper macro, long-lens ballroom entrance, gentle orbit dance, locked final hero.\n\nKeep natural body weight, floor contact, fabric motion, soot, steam, wet reflections, and low-key lighting. Tone is sincere, tender, repressed, and mythic.\n\nNo recognizable public figure, no franchise costume, no comedy mugging, no readable logos, no captions, no anime, no plastic CGI, no modern superhero styling, no floating feet, no melted body, no random drifting.",
+    "audioRef": "none"
+  },
+  "referenceVideo": {
+    "model": "bytedance/seedance-2.0/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use the video command with referenceVideo."
+    }
+  ]
+}
+

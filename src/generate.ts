@@ -265,7 +265,7 @@ type Manifest = {
     localPath?: string;
     model: string;
     imageUrls: string[];
-    audioUrls: string[];
+    audioUrls?: string[];
     providerResult?: unknown;
     error?: string;
   };
@@ -541,7 +541,7 @@ function buildImagePackInput(experiment: Experiment, prompt: string, imageUrls: 
   if (experiment.imagePack.model.includes("nano-banana-2")) {
     return {
       prompt,
-      image_urls: imageUrls,
+      ...(imageUrls.length > 0 ? { image_urls: imageUrls } : {}),
       aspect_ratio: toAspectRatio(experiment.imagePack.imageSize),
       output_format: experiment.imagePack.outputFormat,
       num_images: 1,
@@ -553,7 +553,7 @@ function buildImagePackInput(experiment: Experiment, prompt: string, imageUrls: 
 
   return {
     prompt,
-    image_urls: imageUrls,
+    ...(imageUrls.length > 0 ? { image_urls: imageUrls } : {}),
     image_size: experiment.imagePack.imageSize,
     quality: experiment.imagePack.quality,
     num_images: 1,
@@ -824,10 +824,17 @@ async function generateImagePack(experiment: Experiment, manifest: Manifest, out
   const registry = experiment.imagePack.personalitiesPath
     ? await loadPersonalityRegistry(experiment.imagePack.personalitiesPath)
     : undefined;
-  const selectedImageUrl = experiment.selectedIdol?.imageUrl ?? manifest.selectedIdol?.imageUrl;
+  const selectedImageUrl = experiment.selectedIdol?.imageUrl
+    ?? manifest.selectedIdol?.imageUrl
+    ?? experiment.selectedBaseImage?.upscaledImageUrl
+    ?? experiment.selectedBaseImage?.imageUrl
+    ?? manifest.selectedBaseImage?.upscaledImageUrl
+    ?? manifest.selectedBaseImage?.imageUrl
+    ?? manifest.baseImage.imageUrl;
   const hasFrameImageRefs = experiment.imagePack.frames.some((frame) => frame.imageRefs && frame.imageRefs.length > 0);
-  if (!selectedImageUrl && !registry && !dryRun) {
-    throw new Error("No selectedIdol.imageUrl available. Generate candidates, choose one, then add selectedIdol before creating the image pack.");
+  const allowsTextOnlyImagePack = experiment.imagePack.model.includes("nano-banana-2");
+  if (!selectedImageUrl && !registry && !allowsTextOnlyImagePack && !dryRun) {
+    throw new Error("No selectedIdol.imageUrl or selectedBaseImage.imageUrl available. Add a selected identity/reference image before creating the image pack.");
   }
   if (hasFrameImageRefs && !registry) {
     throw new Error("imagePack frame imageRefs require imagePack.personalitiesPath.");
@@ -849,7 +856,7 @@ async function generateImagePack(experiment: Experiment, manifest: Manifest, out
       ? referencedImageUrls
       : selectedImageUrl
         ? [selectedImageUrl]
-        : ["dry-run://selected-idol.png"];
+        : [];
     const input = buildImagePackInput(experiment, frame.prompt, imageUrls);
     const localPath = path.join(
       imagePackDir,
@@ -1039,7 +1046,13 @@ function resolveStoryboardImageUrls(experiment: Experiment, manifest: Manifest, 
     .map((refName) => manifest.imagePack?.find((frame) => frame.name === refName)?.imageUrl)
     .filter((url): url is string => Boolean(url));
 
-  const selectedUrl = experiment.selectedIdol?.imageUrl ?? manifest.selectedIdol?.imageUrl;
+  const selectedUrl = experiment.selectedIdol?.imageUrl
+    ?? manifest.selectedIdol?.imageUrl
+    ?? experiment.selectedBaseImage?.upscaledImageUrl
+    ?? experiment.selectedBaseImage?.imageUrl
+    ?? manifest.selectedBaseImage?.upscaledImageUrl
+    ?? manifest.selectedBaseImage?.imageUrl
+    ?? manifest.baseImage.imageUrl;
   const urls = [...experiment.storyboard.imageUrls, ...(selectedUrl ? [selectedUrl] : []), ...imagePackUrls];
 
   if (urls.length > 0) {
@@ -1061,28 +1074,53 @@ async function generateReferenceVideo(experiment: Experiment, manifest: Manifest
   if (imageUrls.length === 0) {
     throw new Error("No selected idol or storyboard image pack references available for reference video.");
   }
-  if (!audioUrl && !dryRun) {
+  const requiresAudioUrl = experiment.referenceVideo.model.includes("seedance") && !experiment.referenceVideo.generateAudio;
+  if (!audioUrl && requiresAudioUrl && !dryRun) {
     throw new Error("No generated music audio URL available for reference video. Run the music stage first or provide a manifest with music.audioUrl.");
   }
 
-  const input = {
+  const input: Record<string, unknown> = {
     prompt: experiment.storyboard.prompt,
     image_urls: imageUrls,
-    audio_urls: audioUrl ? [audioUrl] : ["dry-run://mina-rae-lumora-hook.mp3"],
     resolution: experiment.referenceVideo.resolution,
-    duration: experiment.referenceVideo.duration,
+    duration: experiment.referenceVideo.model.includes("happy-horse")
+      ? Number(experiment.referenceVideo.duration)
+      : experiment.referenceVideo.duration,
     aspect_ratio: experiment.referenceVideo.aspectRatio,
-    generate_audio: experiment.referenceVideo.generateAudio,
     ...(experiment.referenceVideo.seed === undefined ? {} : { seed: experiment.referenceVideo.seed })
   };
+  if (experiment.referenceVideo.model.includes("kling-video/o3")) {
+    delete input.resolution;
+    input.start_image_url = imageUrls[1] ?? imageUrls[0];
+    input.image_urls = [imageUrls[0]];
+    if (imageUrls[1]) {
+      input.elements = [
+        {
+          frontal_image_url: imageUrls[1],
+          reference_image_urls: [imageUrls[1]]
+        }
+      ];
+    }
+    input.shot_type = "customize";
+    input.generate_audio = experiment.referenceVideo.generateAudio;
+  } else if (experiment.referenceVideo.model.includes("happy-horse")) {
+    input.enable_safety_checker = true;
+  } else {
+    if (audioUrl) {
+      input.audio_urls = [audioUrl];
+    } else if (dryRun && requiresAudioUrl) {
+      input.audio_urls = ["dry-run://reference-audio.mp3"];
+    }
+    input.generate_audio = experiment.referenceVideo.generateAudio;
+  }
   const localPath = path.join(videosDir, `${experiment.storyboard.title.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "reference-video"}.mp4`);
 
   manifest.referenceVideo = {
     status: "pending",
     prompt: experiment.storyboard.prompt,
     model: experiment.referenceVideo.model,
-    imageUrls: input.image_urls,
-    audioUrls: input.audio_urls
+    imageUrls,
+    audioUrls: audioUrl ? [audioUrl] : undefined
   };
 
   if (dryRun) {

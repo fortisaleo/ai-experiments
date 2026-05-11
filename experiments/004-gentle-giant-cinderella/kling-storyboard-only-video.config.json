@@ -1,0 +1,41 @@
+{
+  "name": "gentle-giant-cinderella-kling-storyboard-only-video",
+  "slug": "004-gentle-giant-cinderella",
+  "baseImage": {
+    "model": "openai/gpt-image-2",
+    "prompt": "Placeholder only for schema compatibility. This config runs a simplified Kling reference-to-video attempt from the storyboard reference only.",
+    "imageSize": "landscape_16_9",
+    "quality": "high",
+    "outputFormat": "png"
+  },
+  "storyboard": {
+    "title": "Gentle Giant Cinderella Kling Storyboard Only Video",
+    "imageUrls": [
+      "https://v3b.fal.media/files/b/0a99ab61/KOyFzb_WPutwit9GdmNTd_HBm4xYPZ.png"
+    ],
+    "imageRefs": [],
+    "prompt": "Use @Image1 as the exact 12-panel storyboard reference and convert it into a sincere gothic fairytale trailer in 15 seconds. Follow the beats in order: soot-black kitchen endurance, oppressive household above, delicate cup repair, invitation through smoke, broken mirror wish, chores collapse, industrial fairy-godmother light, ash-and-silk transformation, tiny glass slipper in enormous palm, concrete-and-crystal ballroom entrance, restrained serious dance, final spotlight on the tiny slipper. Main character is a fictional hulking gentle giant Cinderella figure: broad shoulders, powerful arms, huge careful hands, heavy grounded body weight, tender exhausted presence. Brutalist palace, wet stone, soot, steam, low-key cinematic lighting, fabric and ash motion. No celebrity likeness, no Dave Bautista face, no copied tattoos, no wrestling ring, no Disney/franchise costume, no comedy mugging, no readable text or logos, no floating feet.",
+    "audioRef": "none"
+  },
+  "referenceVideo": {
+    "model": "fal-ai/kling-video/o3/standard/reference-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "video": {
+    "model": "bytedance/seedance-2.0/image-to-video",
+    "resolution": "720p",
+    "duration": "15",
+    "aspectRatio": "16:9",
+    "generateAudio": true
+  },
+  "clips": [
+    {
+      "name": "placeholder",
+      "prompt": "Placeholder only for schema compatibility. Use the video command with referenceVideo."
+    }
+  ]
+}
+
